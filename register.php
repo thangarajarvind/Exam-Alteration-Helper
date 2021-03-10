@@ -36,14 +36,21 @@ else{
 
      //checking username
       if ($rnum==0) {
-      $stmt->close();
-      $stmt = $conn->prepare($INSERT);
-      $stmt->bind_param("ssssss", $name , $email ,$mno, $pass1, $pass2, $dep);
-      $stmt->execute();
-      echo "New record inserted sucessfully";
-     } else {
+        if ($pass1==$pass2) {
+          $pass1=$pass2=md5($pass1);
+          $stmt->close();
+          $stmt = $conn->prepare($INSERT);
+          $stmt->bind_param("ssssss", $name , $email ,$mno, $pass1, $pass2, $dep);
+          $stmt->execute();
+          echo "New record inserted sucessfully";
+        }
+        else {
+          echo "Passwords mismatch";
+        }
+      } 
+        if ($rnum!=0) {
       echo "Someone already register using this email";
-     }
+    }
      $stmt->close();
      $conn->close();
     }
