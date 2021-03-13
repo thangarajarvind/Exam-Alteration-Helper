@@ -11,6 +11,24 @@ $id="";
 $id_num = (string)random_int ( 100 , 999 );
 $id = $dep.$id_num;
 
+$check = NULL;
+$check = "SELECT ISNULL(
+  (
+     SELECT id 
+     FROM register 
+     WHERE id = $id
+  ), NULL)";
+while($check != NULL){
+  $id_num = (string)random_int ( 100 , 999 );
+  $id = $dep.$id_num;
+  $check = "SELECT (SELECT ISNULL(
+    (
+       SELECT id 
+       FROM register 
+       WHERE id = $id
+    ), NULL)";
+}
+
 if (!empty($name) || !empty($email) || !empty($mno) || !empty($pass1) || !empty($pass2) || !empty($dep) )
 {
 
@@ -44,7 +62,7 @@ else{
           $pass1=$pass2=md5($pass1);
           $stmt->close();
           $stmt = $conn->prepare($INSERT);
-          $stmt->bind_param("sssssss", $name , $email ,$mno, $pass1, $pass2, $dep,$id);
+          $stmt->bind_param("sssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id);
           $stmt->execute();
           echo "New record inserted sucessfully";
         }
