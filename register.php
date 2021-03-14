@@ -11,24 +11,6 @@ $id="";
 $id_num = (string)random_int ( 100 , 999 );
 $id = $dep.$id_num;
 
-$check = NULL;
-$check = "SELECT ISNULL(
-  (
-     SELECT id 
-     FROM register 
-     WHERE id = $id
-  ), NULL)";
-while($check != NULL){
-  $id_num = (string)random_int ( 100 , 999 );
-  $id = $dep.$id_num;
-  $check = "SELECT (SELECT ISNULL(
-    (
-       SELECT id 
-       FROM register 
-       WHERE id = $id
-    ), NULL)";
-}
-
 if (!empty($name) || !empty($email) || !empty($mno) || !empty($pass1) || !empty($pass2) || !empty($dep) )
 {
 
