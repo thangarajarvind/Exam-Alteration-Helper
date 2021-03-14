@@ -73,6 +73,21 @@ else{
         if ($rnum!=0) {
       echo "Someone already register using this email";
     }
+    $query=mysql_query("SELECT * FROM register WHERE email='".$email."' AND pass1='".$pass1."'");
+      $numrows=mysql_num_rows($query);  
+      if($numrows!=0)  
+      {  
+        while($row=mysql_fetch_assoc($query))  
+        {  
+          $dbemail=$row['email'];  
+          $dbpassword1=$row['pass1'];  
+          
+        if($email == $dbemail && md5($pass1)==md5($dbpassword1))
+        {
+           echo "success";
+        } 
+      } 
+    } 
      $stmt->close();
      $conn->close();
     }
