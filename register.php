@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $name = $_POST['name'];
 $email  = $_POST['email'];
 $mno = $_POST['mno'];
@@ -46,8 +46,14 @@ else{
           $stmt = $conn->prepare($INSERT);
           $stmt->bind_param("ssssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id, $code);
           $stmt->execute();
-          echo "New record inserted sucessfully";
+          echo '<script type="text/javascript">
+            window.onload = function () { alert("Account Created"); }
+            function close_window(){
+              window.opener.location = 'main.php';
+              window.close();
+          </script>';
         }
+      }
         else {
           echo "Passwords mismatch";
         }
@@ -55,6 +61,6 @@ else{
         if ($rnum!=0) {
       echo "Someone already register using this email";
     }
-} 
-}
+  }
+
 ?>

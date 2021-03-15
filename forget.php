@@ -34,6 +34,9 @@ else{
         $row = mysqli_fetch_assoc($result);
         $code = $row['code'];
         $_SESSION['code'] = $code;
+        $code = rand(10000,99999);
+        $sql = "UPDATE register SET code='$code' where email='" . $_POST['email'] . "'"; 
+        $conn->query($sql);
         header('Location: entercode.html');
     }
     else{
