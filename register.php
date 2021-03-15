@@ -6,6 +6,7 @@ $mno = $_POST['mno'];
 $pass1 = $_POST['pass1'];
 $pass2 = $_POST['pass2'];
 $dep = $_POST['dep'];
+
 $code= rand(10000,99999);
 $id="";
 $id_num = (string)random_int ( 100 , 999 );

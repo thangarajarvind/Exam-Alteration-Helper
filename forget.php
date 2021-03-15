@@ -1,11 +1,12 @@
 <?php
+session_start();
 $email = $_POST['email'];
+$_SESSION['email'] = $email;
 $code="";
 if (empty($email))
 {
     die('Email is missing');
 }
-
 
 $host = "localhost";
 $dbusername = "root";
@@ -27,15 +28,16 @@ else{
     $stmt->store_result();
     $rnum = $stmt->num_rows;
     
-
     if ($rnum==1) {
         $stmt->close();
         $result = mysqli_query($conn,"SELECT * FROM register where email='" . $_POST['email'] . "'");
         $row = mysqli_fetch_assoc($result);
         $code = $row['code'];
+        $_SESSION['code'] = $code;
         header('Location: entercode.html');
     }
     else{
         echo 'Email ID does not exist';
     }
 }
+?>
