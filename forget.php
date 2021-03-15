@@ -19,40 +19,23 @@ if (mysqli_connect_error()){
     . mysqli_connect_error());
 }
 else{
-    $SELECT = "SELECT email From register Where email = ?"
+    $SELECT = "SELECT email From register Where email = ?";
     $stmt = $conn->prepare($SELECT);
-    $stmt->bind_param("s", $user);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
-    $stmt->bind_result($user);
+    $stmt->bind_result($email);
     $stmt->store_result();
     $rnum = $stmt->num_rows;
-    $stmt->close();
+    
 
     if ($rnum==1) {
-        $stmt = $conn->prepare($PASSWORD);
-        $stmt->bind_param("s", $user);
-        $stmt->execute();
-        $stmt->bind_result($email);
-        $stmt->store_result();
-        $CODE = "SELECT code From register Where email = ?"
-        $stmt = $conn->prepare($CODE);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($email);
-        $stmt->store_result();
-        $cnum = $stmt->num_rows;
         $stmt->close();
-        $stmt = $conn->prepare($CODE);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->bind_result($code);
-        $stmt->store_result();
-        $stmt->close();
-        echo $code;
+        $result = mysqli_query($conn,"SELECT * FROM register where email='" . $_POST['email'] . "'");
+        $row = mysqli_fetch_assoc($result);
+        $code = $row['code'];
+        header('Location: entercode.html');
     }
-
-
-
-
-	echo $sql;
-	}
+    else{
+        echo 'Email ID does not exist';
+    }
+}

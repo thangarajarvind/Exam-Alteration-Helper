@@ -43,7 +43,7 @@ else{
           $pass1=$pass2=md5($pass1);
           $stmt->close();
           $stmt = $conn->prepare($INSERT);
-          $stmt->bind_param("sssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id, $code);
+          $stmt->bind_param("ssssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id, $code);
           $stmt->execute();
           echo "New record inserted sucessfully";
         }
