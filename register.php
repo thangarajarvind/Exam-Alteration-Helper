@@ -8,7 +8,7 @@ $pass2 = $_POST['pass2'];
 $dep = $_POST['dep'];
 
 $id="";
-$id_num = (string)random_int ( 100 , 999 );
+$id_num = (string)random_int ( 1000 , 9999 );
 $id = $dep.$id_num;
 
 if (!empty($name) || !empty($email) || !empty($mno) || !empty($pass1) || !empty($pass2) || !empty($dep) )
