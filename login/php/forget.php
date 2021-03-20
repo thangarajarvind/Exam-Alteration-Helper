@@ -37,7 +37,7 @@ else{
         $code = rand(10000,99999);
         $sql = "UPDATE register SET code='$code' where email='" . $_POST['email'] . "'"; 
         $conn->query($sql);
-        header('Location: entercode.html');
+        header('Location: ../html/entercode.html');
     }
     else{
         echo 'Email ID does not exist';

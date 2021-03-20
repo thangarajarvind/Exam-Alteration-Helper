@@ -46,12 +46,7 @@ else{
           $stmt = $conn->prepare($INSERT);
           $stmt->bind_param("ssssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id, $code);
           $stmt->execute();
-          echo '<script type="text/javascript">
-            window.onload = function () { alert("Account Created"); }
-            function close_window(){
-              window.opener.location = 'main.php';
-              window.close();
-          </script>';
+          echo 'Account created';
         }
       }
         else {
