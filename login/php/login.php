@@ -69,10 +69,10 @@ else{
         $stmt->execute();
         $stmt->bind_result($user);
         $stmt->store_result();
-        $rnum = $stmt->num_rows;
+        $rnumm = $stmt->num_rows;
         $stmt->close();
 
-        if ($rnum==1) {
+        if ($rnumm==1) {
             if ($user == $admine || $user == $adminm){
                 $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $_POST['user'] . "'");
                 $row = mysqli_fetch_assoc($result);
@@ -99,4 +99,7 @@ else{
             }
         }
 	}
+    if($rnumm!=1 && $rnum!=1){
+        echo 'User does not exist';
+    }
 }
