@@ -29,6 +29,7 @@ if (mysqli_connect_error()){
 }
 else{
   $SELECT = "SELECT email From register Where email = ? Limit 1";
+  $SELECTM = "SELECT mno From register Where mno = ? Limit 1";
   $INSERT = "INSERT Into register (name , email ,mno, pass1, pass2, dep, id, code )values(?,?,?,?,?,?,?,?)";
 //Prepare statement
      $stmt = $conn->prepare($SELECT);
@@ -37,9 +38,17 @@ else{
      $stmt->bind_result($email);
      $stmt->store_result();
      $rnum = $stmt->num_rows;
+     $stmt->close();
+
+     $stmt = $conn->prepare($SELECTM);
+     $stmt->bind_param("s", $mno);
+     $stmt->execute();
+     $stmt->bind_result($mno);
+     $stmt->store_result();
+     $rnumm = $stmt->num_rows;
 
      //checking username
-      if ($rnum==0) {
+      if ($rnum==0 && $rnumm==0) {
         if ($pass1==$pass2) {
           $pass1=$pass2=md5($pass1);
           $stmt->close();
@@ -48,14 +57,17 @@ else{
           $stmt->execute();
           echo 'Account created';
         }
-      }
         else {
           echo "Passwords mismatch";
         }
-      } 
-        if ($rnum!=0) {
+      }
+      if ($rnum!=0) {
       echo "Someone already register using this email";
     }
+    if ($rnumm!=0) {
+      echo "Someone already register using this mobile number";
+    }
   }
+}
 
 ?>
