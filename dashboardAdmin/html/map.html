@@ -38,6 +38,7 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
+    <form name="myform" action="../php/map.php" method="GET"></form>
       <div class="logo">
           Admin
         </div>
@@ -85,7 +86,6 @@ The above copyright notice and this permission notice shall be included in all c
                 <p>Notifications</p>
               </a>
             </li>
-  
           </ul>
         </div>
       </div>
@@ -170,97 +170,60 @@ The above copyright notice and this permission notice shall be included in all c
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Status
-                        </th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>
-                            CSE101
-                          </td>
-                          <td>
-                            Dakota Rice
-                          </td>
+                          <td>CSE101</td>
+                          <td>Dakota Rice</td>
                           <td class="border-top-0 text-center"><i class="fa fa-circle text-warning"
                             data-toggle="tooltip" data-placement="top"
                             title="In Class"></i></td>
                         </tr>
                         <tr>
-                          <td>
-                            ECE201
-                          </td>
-                          <td>
-                            Minerva Hooper
-                          </td>
+                          <td>ECE201</td>
+                          <td>Minerva Hooper</td>
                           <td class="border-top-0 text-center"><i class="fa fa-circle text-warning"
                             data-toggle="tooltip" data-placement="top"
                             title="In Class"></i></td>
                         </tr>
                         <tr>
-                          <td>
-                            CSE343
-                          </td>
-                          <td>
-                            Sage Rodriguez
-                          </td>
+                          <td>CSE343</td>
+                          <td>Sage Rodriguez</td>
                           <td class="border-top-0 text-center"><i class="fa fa-circle text-dark"
                             data-toggle="tooltip" data-placement="top"
                             title="Absent"></i></td>
                         </tr>
                         <tr>
-                          <td>
-                            CSE421
-                          </td>
-                          <td>
-                            Philip Chaney
-                          </td>
+                          <td>CSE421</td>
+                          <td>Philip Chaney</td>
                           <td class="border-top-0 text-center"><i class="fa fa-circle text-success"
                             data-toggle="tooltip" data-placement="top"
                             title="Available"></i></td>
                         </tr>
                         <tr>
-                          <td>
-                            ECE513
-                          </td>
-                          <td>
-                            Doris Greene
-                          </td>
+                          <td>ECE513</td>
+                          <td>Doris Greene</td>
                           <td class="text-center"><i class="fa fa-circle text-danger"
-                            data-toggle="tooltip" data-placement="top" title="On Duty"></i>
-                    </td>
+                            data-toggle="tooltip" data-placement="top" title="On Duty"></i></td>
                         </tr>
-                        <!--
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-primary">
-                            $78,615
-                          </td>
-                        </tr>
-                      -->
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
+            <script type="text/javascript">
+            if($work==1)
+            document.write("available<br />");
+            if($work==2)
+            document.write("inClass<br />");
+            if($work==3)
+            document.write("absent<br />");
+            if($work==4)
+            document.write("inDuty<br />");
+            </script>
 </body>
-
 </html>
