@@ -7,6 +7,9 @@ $pass1 = $_POST['pass1'];
 $pass2 = $_POST['pass2'];
 $dep = $_POST['dep'];
 
+$len = strlen($mno);
+$plen = strlen($pass1);
+
 $code= rand(10000,99999);
 $id="";
 $id_num = (string)random_int ( 100 , 999 );
@@ -50,12 +53,16 @@ else{
      //checking username
       if ($rnum==0 && $rnumm==0) {
         if ($pass1==$pass2) {
-          $pass1=$pass2=md5($pass1);
-          $stmt->close();
-          $stmt = $conn->prepare($INSERT);
-          $stmt->bind_param("ssssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id, $code);
-          $stmt->execute();
-          echo 'Account created';
+          if($len == 10){
+            if($plen > 7){
+              $pass1=$pass2=md5($pass1);
+              $stmt->close();
+              $stmt = $conn->prepare($INSERT);
+              $stmt->bind_param("ssssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id, $code);
+              $stmt->execute();
+              echo 'Account created';
+            }
+          }
         }
         else {
           echo "Passwords mismatch";
@@ -66,6 +73,12 @@ else{
     }
     if ($rnumm!=0) {
       echo "Someone already register using this mobile number";
+    }
+    if($len!=10){
+      echo "Invalid mobile number";
+    }
+    if($plen<8){
+      echo "Passwords should be over 8 characters";
     }
   }
 }
