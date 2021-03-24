@@ -7,6 +7,10 @@ if($code == $ucode){
     header('Location: ../html/reset.html');
 }
 else{
-    echo 'Invalid Code';
+    echo '<script language="javascript">';
+    echo 'alert("Invalid Code");';
+    echo 'window.location.href = "../html/entercode.html";';
+    echo 'window.close();';
+    echo '</script>';
 }
 ?>

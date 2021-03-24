@@ -60,25 +60,49 @@ else{
               $stmt = $conn->prepare($INSERT);
               $stmt->bind_param("ssssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id, $code);
               $stmt->execute();
-              echo 'Account created';
+              echo '<script language="javascript">';
+              echo 'alert("Account created");';
+              echo 'window.location.href = "../html/index.html";';
+              echo 'window.close();';
+              echo '</script>';
             }
           }
         }
         else {
-          echo "Passwords mismatch";
+          echo '<script language="javascript">';
+          echo 'alert("Password Mismatch");';
+          echo 'window.location.href = "../html/index.html";';
+          echo 'window.close();';
+          echo '</script>';
         }
       }
       if ($rnum!=0) {
-      echo "Someone already register using this email";
+        echo '<script language="javascript">';
+        echo 'alert("Email exists already");';
+        echo 'window.location.href = "../html/index.html";';
+        echo 'window.close();';
+        echo '</script>';
     }
     if ($rnumm!=0) {
-      echo "Someone already register using this mobile number";
+      echo '<script language="javascript">';
+      echo 'alert("Mobile number exists already");';
+      echo 'window.location.href = "../html/index.html";';
+      echo 'window.close();';
+      echo '</script>';
     }
     if($len!=10){
-      echo "Invalid mobile number";
+      echo '<script language="javascript">';
+      echo 'alert("Invalid Mobile number");';
+      echo 'window.location.href = "../html/index.html";';
+      echo 'window.close();';
+      echo '</script>';
     }
     if($plen<8){
-      echo "Passwords should be over 8 characters";
+      echo '<script language="javascript">';
+      echo 'alert("Password should be over 8 characters");';
+      echo 'window.location.href = "../html/index.html";';
+      echo 'window.close();';
+      echo '</script>';
     }
   }
 }

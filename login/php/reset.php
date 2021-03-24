@@ -22,12 +22,20 @@ if($p1 == $p2){
         $p1=$p2=md5($p1);
         $sql = "UPDATE register SET pass1='$p1',pass2='$p1' where email='" . $_SESSION['email'] . "'"; 
         if ($conn->query($sql) === TRUE) {
-            echo "Record updated successfully";
+            echo '<script language="javascript">';
+              echo 'alert("Record updated Successfully");';
+              echo 'window.location.href = "../html/index.html";';
+              echo 'window.close();';
+              echo '</script>';
           } else {
             echo "Error updating record: " . $conn->error;
           }
     }
 }   
     else{
-    echo 'Password Mismatch';
+        echo '<script language="javascript">';
+        echo 'alert("Account created");';
+        echo 'window.location.href = "../html/reset.html";';
+        echo 'window.close();';
+        echo '</script>';
 }  

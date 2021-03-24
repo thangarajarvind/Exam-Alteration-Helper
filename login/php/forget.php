@@ -40,7 +40,11 @@ else{
         header('Location: ../html/entercode.html');
     }
     else{
-        echo 'Email ID does not exist';
+        echo '<script language="javascript">';
+        echo 'alert("User does not exist");';
+        echo 'window.location.href = "../html/forgetpassword.html";';
+        echo 'window.close();';
+        echo '</script>';
     }
 }
 ?>

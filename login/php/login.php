@@ -45,7 +45,11 @@ else{
                 header('Location: ../../dashboardAdmin/html/dashboard.html');
             }
             else{
-                echo 'Incorrect password';
+                echo '<script language="javascript">';
+                echo 'alert("Incorrect Password");';
+                echo 'window.location.href = "../html/index.html";';
+                echo 'window.close();';
+                echo '</script>';
             }
         }
         else{
@@ -57,7 +61,11 @@ else{
                 header('Location: ../../dashboard/html/dashboard.html');
             }
             else{
-                echo 'Incorrect password';
+                echo '<script language="javascript">';
+                echo 'alert("Incorrect Password");';
+                echo 'window.location.href = "../html/index.html";';
+                echo 'window.close();';
+                echo '</script>';
             }
         }
     }
@@ -82,7 +90,11 @@ else{
                     header('Location: ../../dashboardAdmin/html/dashboard.html');
                 }
                 else{
-                    echo 'Incorrect password';
+                    echo '<script language="javascript">';
+                    echo 'alert("Incorrect Password");';
+                    echo 'window.location.href = "../html/index.html";';
+                    echo 'window.close();';
+                    echo '</script>';
                 }
             }
             else{
@@ -94,12 +106,20 @@ else{
                     header('Location: ../../dashboard/html/dashboard.html');
                 }
                 else{
-                    echo 'Incorrect password';
+                    echo '<script language="javascript">';
+                    echo 'alert("Incorrect Password");';
+                    echo 'window.location.href = "../html/index.html";';
+                    echo 'window.close();';
+                    echo '</script>';
                 }
             }
         }
 	}
     if($rnumm!=1 && $rnum!=1){
-        echo 'User does not exist';
+        echo '<script language="javascript">';
+        echo 'alert("User does not exist");';
+        echo 'window.location.href = "../html/index.html";';
+        echo 'window.close();';
+        echo '</script>';
     }
 }
