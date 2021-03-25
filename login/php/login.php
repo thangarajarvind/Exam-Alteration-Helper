@@ -45,11 +45,9 @@ else{
                 header('Location: ../../dashboardAdmin/html/dashboard.html');
             }
             else{
-                echo '<script language="javascript">';
-                echo 'alert("Incorrect Password");';
-                echo 'window.location.href = "../html/index.html";';
-                echo 'window.close();';
-                echo '</script>';
+                $m = "Incorrect Password";
+                $l = "../html/index.html";
+                popup ($m,$l);
             }
         }
         else{
@@ -61,11 +59,9 @@ else{
                 header('Location: ../../dashboard/html/dashboard.html');
             }
             else{
-                echo '<script language="javascript">';
-                echo 'alert("Incorrect Password");';
-                echo 'window.location.href = "../html/index.html";';
-                echo 'window.close();';
-                echo '</script>';
+                $m = "Incorrect Password";
+                $l = "../html/index.html";
+                popup ($m,$l);
             }
         }
     }
@@ -90,11 +86,9 @@ else{
                     header('Location: ../../dashboardAdmin/html/dashboard.html');
                 }
                 else{
-                    echo '<script language="javascript">';
-                    echo 'alert("Incorrect Password");';
-                    echo 'window.location.href = "../html/index.html";';
-                    echo 'window.close();';
-                    echo '</script>';
+                    $m = "Incorrect Password";
+                    $l = "../html/index.html";
+                    popup ($m,$l);
                 }
             }
             else{
@@ -106,20 +100,22 @@ else{
                     header('Location: ../../dashboard/html/dashboard.html');
                 }
                 else{
-                    echo '<script language="javascript">';
-                    echo 'alert("Incorrect Password");';
-                    echo 'window.location.href = "../html/index.html";';
-                    echo 'window.close();';
-                    echo '</script>';
+                    $m = "Incorrect Password";
+                    $l = "../html/index.html";
+                    popup ($m,$l);
                 }
             }
         }
 	}
     if($rnumm!=1 && $rnum!=1){
-        echo '<script language="javascript">';
-        echo 'alert("User does not exist");';
-        echo 'window.location.href = "../html/index.html";';
-        echo 'window.close();';
-        echo '</script>';
+        $m = "User does not exist";
+        $l = "../html/index.html";
+        popup ($m,$l);
     }
 }
+
+function popup ($m,$l){
+    echo "<script type='text/javascript'>alert('$m');window.location.href = '$l';window.close();</script>";
+}
+
+?>

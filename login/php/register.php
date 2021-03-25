@@ -60,51 +60,44 @@ else{
               $stmt = $conn->prepare($INSERT);
               $stmt->bind_param("ssssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id, $code);
               $stmt->execute();
-              echo '<script language="javascript">';
-              echo 'alert("Account created");';
-              echo 'window.location.href = "../html/index.html";';
-              echo 'window.close();';
-              echo '</script>';
+              $m = "Account created";
+              $l = "../html/index.html";
+              popup ($m,$l);
+              
             }
           }
         }
         else {
-          echo '<script language="javascript">';
-          echo 'alert("Password Mismatch");';
-          echo 'window.location.href = "../html/index.html";';
-          echo 'window.close();';
-          echo '</script>';
+          $m = "Password Mismatch";
+          $l = "../html/index.html";
+          popup ($m,$l);
         }
       }
       if ($rnum!=0) {
-        echo '<script language="javascript">';
-        echo 'alert("Email exists already");';
-        echo 'window.location.href = "../html/index.html";';
-        echo 'window.close();';
-        echo '</script>';
+        $m = "Email exists already";
+        $l = "../html/index.html";
+        popup ($m,$l);
     }
     if ($rnumm!=0) {
-      echo '<script language="javascript">';
-      echo 'alert("Mobile number exists already");';
-      echo 'window.location.href = "../html/index.html";';
-      echo 'window.close();';
-      echo '</script>';
+      $m = "Mobile number exists already";
+      $l = "../html/index.html";
+      popup ($m,$l);
     }
     if($len!=10){
-      echo '<script language="javascript">';
-      echo 'alert("Invalid Mobile number");';
-      echo 'window.location.href = "../html/index.html";';
-      echo 'window.close();';
-      echo '</script>';
+      $m = "Invalid Mobile number";
+      $l = "../html/index.html";
+      popup ($m,$l);
     }
     if($plen<8){
-      echo '<script language="javascript">';
-      echo 'alert("Password should be over 8 characters");';
-      echo 'window.location.href = "../html/index.html";';
-      echo 'window.close();';
-      echo '</script>';
+      $m = "Password should be over 8 characters";
+      $l = "../html/index.html";
+      popup ($m,$l);
     }
   }
+}
+
+function popup ($m,$l){
+  echo "<script type='text/javascript'>alert('$m');window.location.href = '$l';window.close();</script>";
 }
 
 ?>
