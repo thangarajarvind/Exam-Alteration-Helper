@@ -1,11 +1,11 @@
 <?php
 session_start();
-$email = $_POST['email'];
-$_SESSION['email'] = $email;
+$user = $_POST['user'];
+$_SESSION['user'] = $user;
 $code="";
-if (empty($email))
+if (empty($user))
 {
-    die('Email is missing');
+    die('Email/Mobile is missing');
 }
 
 $host = "localhost";
@@ -22,29 +22,52 @@ if (mysqli_connect_error()){
 else{
     $SELECT = "SELECT email From register Where email = ?";
     $stmt = $conn->prepare($SELECT);
-    $stmt->bind_param("s", $email);
+    $stmt->bind_param("s", $user);
     $stmt->execute();
-    $stmt->bind_result($email);
+    $stmt->bind_result($user);
     $stmt->store_result();
     $rnum = $stmt->num_rows;
     
     if ($rnum==1) {
         $stmt->close();
-        $result = mysqli_query($conn,"SELECT * FROM register where email='" . $_POST['email'] . "'");
+        $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $_POST['user'] . "'");
         $row = mysqli_fetch_assoc($result);
         $code = $row['code'];
         $_SESSION['code'] = $code;
         $code = rand(10000,99999);
-        $sql = "UPDATE register SET code='$code' where email='" . $_POST['email'] . "'"; 
+        $sql = "UPDATE register SET code='$code' where mno='" . $_POST['user'] . "'"; 
         $conn->query($sql);
         header('Location: ../html/entercode.html');
     }
     else{
-        echo '<script language="javascript">';
-        echo 'alert("User does not exist");';
-        echo 'window.location.href = "../html/forgetpassword.html";';
-        echo 'window.close();';
-        echo '</script>';
+        $SELECT = "SELECT mno From register Where mno = ?";
+        $stmt = $conn->prepare($SELECT);
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $stmt->bind_result($user);
+        $stmt->store_result();
+        $rnumm = $stmt->num_rows;
+
+        if ($rnumm==1) {
+            $stmt->close();
+            $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $_POST['user'] . "'");
+            $row = mysqli_fetch_assoc($result);
+            $code = $row['code'];
+            $_SESSION['code'] = $code;
+            $code = rand(10000,99999);
+            $sql = "UPDATE register SET code='$code' where mno='" . $_POST['user'] . "'"; 
+            $conn->query($sql);
+            header('Location: ../html/entercode.html');
+        }
     }
+    if($rnumm!=1 && $rnum!=1){
+        $m = "User does not exist";
+        $l = "../html/index.html";
+        popup ($m,$l);
+    }
+}
+
+function popup ($m,$l){
+    echo "<script type='text/javascript'>alert('$m');window.location.href = '$l';window.close();</script>";
 }
 ?>
