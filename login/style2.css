@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: #FF416C;
+    background-image: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background-image: linear-gradient(to right, #FF4B2B, #FF416C);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
