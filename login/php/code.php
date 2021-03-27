@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $code = $_SESSION['code'];
 $ucode = $_POST['code'];
 

@@ -22,8 +22,9 @@ if (mysqli_connect_error()){
 
 else{
     $opass = md5($opass);
-
-    $odbpass = mysqli_query($conn,"SELECT pass1 FROM register where id='$id'");
+    $result = mysqli_query($conn,"SELECT pass1 FROM register where id='$id'");
+    $row = mysqli_fetch_assoc($result);
+    $odbpass = $row['pass1'];
     if($opass == $odbpass){
         if($npass == $npass1){
             $npass = md5($npass);
@@ -32,6 +33,12 @@ else{
                 $m = "Record updated successfully";
                 $l = "../html/changepassword.html";
                 popup ($m,$l);
+            }
+            else{
+                $m = "Error in update";
+                $l = "../html/changepassword.html";
+                popup ($m,$l);
+            }
         }
         else{
             $m = "New passwords mismatch";

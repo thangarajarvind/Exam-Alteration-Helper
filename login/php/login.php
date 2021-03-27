@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $user = $_POST['user'];
 $pass  = $_POST['pass'];
@@ -42,8 +43,11 @@ else{
             $dbpass = $row['pass1'];
             $pass = md5($pass);
             if($pass == $dbpass){
+                $result = mysqli_query($conn,"SELECT id FROM register where email='$user'");
+                $row = mysqli_fetch_assoc($result);
+                $id = $row['id'];
+                $_SESSION['id'] = $id;
                 header('Location: ../../dashboardAdmin/html/dashboard.html');
-                id_fetch($user);
             }
             else{
                 $m = "Incorrect Password";
@@ -57,8 +61,11 @@ else{
             $dbpass = $row['pass1'];
             $pass = md5($pass);
             if($pass == $dbpass){
+                $result = mysqli_query($conn,"SELECT id FROM register where email='$user'");
+                $row = mysqli_fetch_assoc($result);
+                $id = $row['id'];
+                $_SESSION['id'] = $id;
                 header('Location: ../../dashboard/html/dashboard.html');
-                id_fetch($user);
             }
             else{
                 $m = "Incorrect Password";
@@ -85,8 +92,11 @@ else{
                 $dbpass = $row['pass1'];
                 $pass = md5($pass);
                 if($pass == $dbpass){
+                    $result = mysqli_query($conn,"SELECT id FROM register where mno='$user'");
+                    $row = mysqli_fetch_assoc($result);
+                    $id = $row['id'];
+                    $_SESSION['id'] = $id;
                     header('Location: ../../dashboardAdmin/html/dashboard.html');
-                    id_fetch($user);
                 }
                 else{
                     $m = "Incorrect Password";
@@ -100,8 +110,11 @@ else{
                 $dbpass = $row['pass1'];
                 $pass = md5($pass);
                 if($pass == $dbpass){
+                    $result = mysqli_query($conn,"SELECT id FROM register where mno='$user'");
+                    $row = mysqli_fetch_assoc($result);
+                    $id = $row['id'];
+                    $_SESSION['id'] = $id;
                     header('Location: ../../dashboard/html/dashboard.html');
-                    id_fetch($user);
                 }
                 else{
                     $m = "Incorrect Password";
@@ -115,18 +128,6 @@ else{
         $m = "User does not exist";
         $l = "../html/index.html";
         popup ($m,$l);
-    }
-}
-
-function id_fetch($user){
-    session_start();
-    if($rnum == 1){
-        $id = mysqli_query($conn,"SELECT id FROM register where email='$user'");
-        $_SESSION['id'] = $id;
-    }
-    if($rnumm == 1){
-        $id = mysqli_query($conn,"SELECT id FROM register where mno='$user'");
-        $_SESSION['id'] = $id;
     }
 }
 
