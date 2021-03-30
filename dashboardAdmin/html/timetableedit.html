@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+.green{ background-color:#ccffcc;
+    class:"table-success"
+}
 
+.blue{ background-color:#b3e6ff; }
+
+.red{ background-color:#ffcccc;
+    class:"table-danger"
+}
+select{ width:97%;
+    height: 40px;}
+</style>
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
@@ -17,6 +29,8 @@
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+  <script type="text/javascript" src="../assets/js/plugins/table.js"></script>
 </head>
 
 <body class="">
@@ -56,7 +70,7 @@
               <p>Duty Allocation</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="./timetable.html">
               <i class="material-icons">calendar_today</i>
               <p>Timetable</p>
@@ -80,7 +94,8 @@
               <p>Notifications</p>
             </a>
           </li>
-          <li class="nav-item active">
+          
+          <li class="nav-item">
             <a class="nav-link" href="./changepassword.html">
               <i class="material-icons">vpn_key</i>
               <p>Change Password</p>
@@ -95,7 +110,7 @@
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
           <div class="container-fluid">
             <div class="navbar-wrapper">
-              <a class="navbar-brand" href="javascript:;">Change Password</a>
+              <a class="navbar-brand" href="javascript:;">View Faculty Timetable</a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
               <span class="sr-only">Toggle navigation</span>
@@ -157,53 +172,114 @@
             </div>
           </div>
         </nav>
+        <div>
+        </div>
+        <div>
+        </div>        <div class="col-12">
+            
+        </div>        <div class="card">
+        </div>
+        <div class="col-12">
+            
+        </div>        <div class="card">
+        </div>
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#DropDownList2").change(function () {
+                    if ($(this).find('option:selected').text() == "Available") {
+                        $("#risk1").html("1.2");
+                    }
+                    else if ($(this).find('option:selected').text() == "In Class") {
+                        $("#risk1").html("3.5");
+                    }
+                });
+            });
+        </script>
 
-
-        <div class="content">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-8">
-                  <div class="card">
-                    <div class="card-header card-header-primary">
-                      <h4 class="card-title">Change Password</h4>
-                      <p class="card-category">Change your password here</p>
-                    </div>
-                    <div class="card-body">
-                      <form name="myform" action="../php/chpass.php" method="POST">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label class="bmd-label-floating">Current Password</label>
-                              <input type="password" name="opass" class="form-control" required="">
-                            </div>
-                          </div>
-                        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered table-striped">
                         
-                        <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label class="bmd-label-floating">Enter new password</label>
-                                <input type="password" name="npass" class="form-control" required="">
-                              </div>
-                            </div>
-                          </div>
-                          
-                        <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group">
-                                <label class="bmd-label-floating">Confirm new password</label>
-                                <input type="password" name="npass1" class="form-control" required="">
-                              </div>
-                            </div>
-                          </div>
-                        
-                        <button type="submit" class="btn btn-primary pull-right">Change password</button>
-                        <div class="clearfix"></div>
-                      </form>
-                    </div>
-                  </div>
+                        <thead>
+                            <tr><h3> Viewing timetable of Sandra Phillps!</h3></tr>
+                            <tr>
+                                <th scope="col">Class/Day</th>
+                                <th scope="col">1</th>
+                                <th scope="col">2</th>
+                                <th scope="col">3</th>
+                                <th scope="col">4</th>
+                                <th scope="col">5</th>
+                                <th scope="col">6</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Monday</th>
+                                <td> <select onchange="this.className=this.options[this.selectedIndex].className"
+                                    class="green"> 
+                                        <option class="green">Available</option>
+                                        <option class="red">On Duty</option>
+                                        <option class="blue">In Class</option>
+                                    </select>
+                                </td>
+                                <td class="table-primary">In Class</td>
+                                <td class="table-primary">In Class</td>
+                                <td class="dropdown" data-toggle="dropdown">
+                                  <asp:DropDownList ID="DropDownList2" Width="150" runat="server">
+                                      <asp:ListItem Text="Available" Value="0"></asp:ListItem>
+                                      <asp:ListItem Text="In Class" Value="1"></asp:ListItem>
+                                  </asp:DropDownList></td>
+                                  <td id="risk1">4.6</td>
+                                <td class="table-primary"><div contenteditable>I'm editable</div></td>
+                                
+                            </tr>
+                            <tr>
+                                <th scope="row">Tuesday</th>
+                                <td class="table-success">Available</td>
+                                <td class="table-danger">On-Duty</td>
+                                <td class="table-primary">In Class</td>
+                                <td class="table-primary">In Class</td>>
+                                <td class="table-danger">On-Duty</td>
+                                <td class="table-success">Available</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wednesday</th>
+                                <td class="table-success">Available</td>
+                                <td class="table-danger">On-Duty</td>
+                                <td class="table-primary">In Class</td>
+                                <td class="table-success">Available</td>
+                                <td class="table-danger">On-Duty</td>
+                                <td class="table-primary">In Class</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Thursday</th>
+                                <td class="table-success">Available</td>
+                                <td class="table-success">Available</td>
+                                <td class="table-primary">In Class</td>
+                                <td class="table-success">Available</td>
+                                <td class="table-danger">On-Duty</td>
+                                <td class="table-primary">In Class</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Friday</th>
+                                <td class="table-success">Available</td>
+                                <td class="table-primary">In Class</td>
+                                <td class="table-primary">In Class</td>
+                                <td class="table-success">Available</td>
+                                <td class="table-primary">In Class</td>
+                                <td class="table-success">Available</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
                 </div>
-
+            </div>
+            <a class="nav-link" href="./timetable.html"><button type="submit" class="btn btn-primary pull-right">Save</button></a>
+            <div class="clearfix"></div>
+        </div>
+ 
 
         <footer class="footer">
             <div class="container-fluid">
@@ -239,7 +315,7 @@
           </footer>
         </div>
       </div>
-
+      
       <!--   Core JS Files   -->
       <script src="../assets/js/core/jquery.min.js"></script>
       <script src="../assets/js/core/popper.min.js"></script>
