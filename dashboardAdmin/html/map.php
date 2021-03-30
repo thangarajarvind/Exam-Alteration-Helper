@@ -187,40 +187,40 @@ The above copyright notice and this permission notice shall be included in all c
                         <th>Status</th>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>CSE101</td>
-                          <td>Dakota Rice</td>
-                          <td class="border-top-0 text-center"><i class="fa fa-circle text-warning"
-                            data-toggle="tooltip" data-placement="top"
-                            title="In Class"></i></td>
-                        </tr>
-                        <tr>
-                          <td>ECE201</td>
-                          <td>Minerva Hooper</td>
-                          <td class="border-top-0 text-center"><i class="fa fa-circle text-warning"
-                            data-toggle="tooltip" data-placement="top"
-                            title="In Class"></i></td>
-                        </tr>
-                        <tr>
-                          <td>CSE343</td>
-                          <td>Sage Rodriguez</td>
-                          <td class="border-top-0 text-center"><i class="fa fa-circle text-dark"
-                            data-toggle="tooltip" data-placement="top"
-                            title="Absent"></i></td>
-                        </tr>
-                        <tr>
-                          <td>CSE421</td>
-                          <td>Philip Chaney</td>
-                          <td class="border-top-0 text-center"><i class="fa fa-circle text-success"
-                            data-toggle="tooltip" data-placement="top"
-                            title="Available"></i></td>
-                        </tr>
-                        <tr>
-                          <td>ECE513</td>
-                          <td>Doris Greene</td>
-                          <td class="text-center"><i class="fa fa-circle text-danger"
-                            data-toggle="tooltip" data-placement="top" title="On Duty"></i></td>
-                        </tr>
+                        <?php
+                        $conn = mysqli_connect("localhost", "root", "", "se");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT id,name,status FROM work";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                          $c = $row["status"];
+                          if($c == 0){
+                            $c_code = "fa fa-circle text-warning";
+                            $c_txt = "In class";
+                          }
+                          if($c == 1){
+                            $c_code = "fa fa-circle text-dark";
+                            $c_txt = "Absent";
+                          }
+                          if($c == 2){
+                            $c_code = "fa fa-circle text-success";
+                            $c_txt = "Available";
+                          }
+                          if($c == 3){
+                            $c_code = "fa fa-circle text-danger";
+                            $c_txt = "In duty";
+                          }
+                          echo "<tr><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td>". "<td class='border-top-0 text-center'><i class=' . $c_code . ' data-toggle='tooltip' data-placement='top' title=' $c_txt '></i>" . "</td></tr>";
+                        }
+                        echo "</table>";
+                        } else { echo "0 results"; }
+                        $conn->close();
+                      ?>
                       </tbody>
                     </table>
                   </div>
