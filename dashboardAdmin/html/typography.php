@@ -247,10 +247,134 @@
         </div>
       </div>
     -->
+    
       <div class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
+              <div class="card card-plain">
+              <form name="myform" action="../php/avlduty.php" method="POST">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title mt-0"> Faculty Available</h4>
+                  <p class="card-category">This table shows the list of faculty yet to allocate duty</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                  <style>
+                    #green
+                    {
+                      background-color: green;
+                      }
+                    </style>
+                    <table class="table table-hover">
+                      <thead class="">
+                        <th>
+                      </th>
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Status
+                        </th>
+                      </thead>
+                      <tbody>
+                          <?php
+                            $conn = mysqli_connect("localhost", "root", "", "se");
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+                            $sql = "SELECT id,name,status FROM work";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($row = $result->fetch_assoc()) {
+                              $c = $row["status"];
+                              
+                              if($c == 0){
+                                $n = $row["id"];
+                                echo "<td> <input type='radio' id='$n' name='available' value='$n'> </td><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td>". "<td id='green'> Available </td></tr>";
+                              }
+                            }
+                            echo "</table>";
+                            } else { echo "0 results"; }
+                            $conn->close();
+                          ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary pull-right">Add Duty</button>
+                          </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="clearfix">
+
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title mt-0">Faculty Duty</h4>
+            <p class="card-category">This table shows the list of faculty allocated duty</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+            <style>
+              #red
+              {
+                background-color: red;
+                }
+              </style>
+              <table class="table table-hover">
+                <thead class="">
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Room No
+                  </th>
+                  <th>
+                    Status
+                  </th>
+                </thead>
+                <tbody>
+                  <?php
+                        $conn = mysqli_connect("localhost", "root", "", "se");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT id,name,status,room FROM work";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                          $c = $row["status"];
+                          if($c == 1){
+                            echo "<tr><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td><td>" . $row["room"] . "</td>". "<td id='red'> Allocated </td></tr>";
+                          }
+                        }
+                        echo "</table>";
+                        } else { echo "0 results"; }
+                        $conn->close();
+                      ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Post Duty Allocation</h4>
@@ -412,123 +536,6 @@
               <button type="submit" class="btn btn-primary pull-right">Add Duty</button>
               <div class="clearfix"></div>
             </div>
-            <div class="col-md-12">
-              <div class="card card-plain">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title mt-0"> Faculty Available</h4>
-                  <p class="card-category">This table shows the list of faculty yet to allocate duty</p>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                  <style>
-                    #green
-                    {
-                      background-color: green;
-                      }
-                    </style>
-                    <table class="table table-hover">
-                      <thead class="">
-                        <th>
-                      </th>
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Status
-                        </th>
-                      </thead>
-                      <tbody>
-                          <?php
-                            $conn = mysqli_connect("localhost", "root", "", "se");
-                            // Check connection
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            }
-                            $sql = "SELECT id,name,status FROM work";
-                            $result = $conn->query($sql);
-                            if ($result->num_rows > 0) {
-                            // output data of each row
-                            while($row = $result->fetch_assoc()) {
-                              $c = $row["status"];
-                              if($c == 0){
-                                echo "<td> <div class='form-check'> <label class='form-check-label'> <input class='form-check-input' type='checkbox' value='' unchecked> <span class='form-check-sign'> <span class='check'></span> </span> </label> </div> </td><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td>". "<td id='green'> Available </td></tr>";
-                              }
-                            }
-                            echo "</table>";
-                            } else { echo "0 results"; }
-                            $conn->close();
-                          ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary pull-right">Add Duty</button>
-        <div class="clearfix"></div>
-      </div>
-
-      <div class="col-md-12">
-        <div class="card card-plain">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title mt-0">Faculty Duty</h4>
-            <p class="card-category">This table shows the list of faculty allocated duty</p>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-            <style>
-              #red
-              {
-                background-color: red;
-                }
-              </style>
-              <table class="table table-hover">
-                <thead class="">
-                  <th>
-                    ID
-                  </th>
-                  <th>
-                    Name
-                  </th>
-                  <th>
-                    Room No
-                  </th>
-                  <th>
-                    Status
-                  </th>
-                </thead>
-                <tbody>
-                  <?php
-                        $conn = mysqli_connect("localhost", "root", "", "se");
-                        // Check connection
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-                        $sql = "SELECT id,name,status,room FROM work";
-                        $result = $conn->query($sql);
-                        if ($result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                          $c = $row["status"];
-                          if($c == 1){
-                            echo "<tr><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td><td>" . $row["room"] . "</td>". "<td id='red'> Allocated </td></tr>";
-                          }
-                        }
-                        echo "</table>";
-                        } else { echo "0 results"; }
-                        $conn->close();
-                      ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

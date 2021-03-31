@@ -63,7 +63,7 @@ select{ width:97%;
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
+            <a class="nav-link" href="./typography.php">
               <i class="material-icons">library_books</i>
               <p>Duty Allocation</p>
             </a>
@@ -81,7 +81,7 @@ select{ width:97%;
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
+            <a class="nav-link" href="./map.php">
               <i class="material-icons">done_all</i>
               <p>Status</p>
             </a>
@@ -117,7 +117,7 @@ select{ width:97%;
               <span class="navbar-toggler-icon icon-bar"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end">
-              <form class="navbar-form">
+              <form class="navbar-form" >
                 <div class="input-group no-border">
                   <input type="text" value="" class="form-control" placeholder="Search...">
                   <button type="submit" class="btn btn-white btn-round btn-just-icon">
@@ -186,7 +186,6 @@ select{ width:97%;
             <div class="card">
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered table-striped">
-                        
                         <thead>
                             <tr><h3> Viewing timetable of Sandra Phillps!</h3></tr>
                             <tr>
@@ -202,7 +201,7 @@ select{ width:97%;
                         <tbody>
                             <tr>
                               <th scope="row">Monday</th>
-                              <td class="table-success">Available</td>
+                                <td class="table-success">Available</td>
                                 <td class="table-success">Available</td>
                                 <td class="table-primary">In Class</td>
                                 <td class="table-primary">In Class</td>
