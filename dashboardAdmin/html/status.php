@@ -73,22 +73,10 @@ The above copyright notice and this permission notice shall be included in all c
                 <p>Timetable</p>
               </a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="./icons.html">
-                <i class="material-icons">bubble_chart</i>
-                <p>Icons</p>
-              </a>
-            </li>
             <li class="nav-item active ">
               <a class="nav-link" href="./status.php">
                 <i class="material-icons">done_all</i>
                 <p>Status</p>
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="./notifications.html">
-                <i class="material-icons">notifications</i>
-                <p>Notifications</p>
               </a>
             </li>
             <li class="nav-item">
