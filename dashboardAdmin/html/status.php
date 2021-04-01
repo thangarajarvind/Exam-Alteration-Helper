@@ -38,7 +38,6 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-    <form name="myform" action="../php/status.php" method="GET"></form>
     <div class="logo"><a class="simple-text logo-normal">
       Admin
     </a></div>
@@ -106,7 +105,7 @@ The above copyright notice and this permission notice shall be included in all c
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Map</a>
+            <a class="navbar-brand" href="javascript:;">Status</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -169,6 +168,7 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
       </nav>
       <!-- End Navbar -->
+      <form name="myform" action="../php/status.php" method="GET"></form>
       <div class="content">
         <div class="container-fluid">
           <div class="row">

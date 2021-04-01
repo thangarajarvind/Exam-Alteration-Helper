@@ -62,22 +62,10 @@
                 <p>Timetable</p>
               </a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="./icons.html">
-                <i class="material-icons">bubble_chart</i>
-                <p>Icons</p>
-              </a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="./status.php">
                 <i class="material-icons">done_all</i>
                 <p>Status</p>
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="./notifications.html">
-                <i class="material-icons">notifications</i>
-                <p>Notifications</p>
               </a>
             </li>
             <li class="nav-item">
@@ -94,7 +82,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Typography</a>
+            <a class="navbar-brand" href="javascript:;">Duty Allocation</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -550,43 +538,8 @@
     </div>
   </div>
 </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
+</div>
+</div>
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
