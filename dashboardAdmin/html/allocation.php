@@ -52,29 +52,40 @@
             </a>
           </li>
           <li class="nav-item active ">
-            <a class="nav-link" href="./typography.html">
+            <a class="nav-link" href="./allocation.php">
               <i class="material-icons">library_books</i>
               <p>Duty Allocation</p>
             </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.php">
-              <i class="material-icons">done_all</i>
-              <p>Status</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./timetable.php">
+                <i class="material-icons">calendar_today</i>
+                <p>Timetable</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="./icons.html">
+                <i class="material-icons">bubble_chart</i>
+                <p>Icons</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./status.php">
+                <i class="material-icons">done_all</i>
+                <p>Status</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="./notifications.html">
+                <i class="material-icons">notifications</i>
+                <p>Notifications</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./changepassword.html">
+                <i class="material-icons">vpn_key</i>
+                <p>Change Password</p>
+              </a>
+            </li>
         </ul>
       </div>
     </div>

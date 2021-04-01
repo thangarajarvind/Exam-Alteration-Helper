@@ -38,7 +38,7 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-    <form name="myform" action="../php/map.php" method="GET"></form>
+    <form name="myform" action="../php/status.php" method="GET"></form>
     <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
       Admin
     </a></div>
@@ -63,13 +63,13 @@ The above copyright notice and this permission notice shall be included in all c
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="./typography.html">
+              <a class="nav-link" href="./allocation.php">
                 <i class="material-icons">library_books</i>
                 <p>Duty Allocation</p>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./timetable.html">
+              <a class="nav-link" href="./timetable.php">
                 <i class="material-icons">calendar_today</i>
                 <p>Timetable</p>
               </a>
@@ -81,7 +81,7 @@ The above copyright notice and this permission notice shall be included in all c
               </a>
             </li>
             <li class="nav-item active ">
-              <a class="nav-link" href="./map.html">
+              <a class="nav-link" href="./status.php">
                 <i class="material-icons">done_all</i>
                 <p>Status</p>
               </a>
