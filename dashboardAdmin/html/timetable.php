@@ -39,7 +39,7 @@ select{ width:97%;
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <div class="logo"><a class="simple-text logo-normal">
           Admin
         </a></div>
       <div class="sidebar-wrapper">
@@ -187,7 +187,7 @@ select{ width:97%;
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered table-striped">
                         <thead>
-                            <tr><h3> Viewing timetable of Sandra Phillps!</h3></tr>
+                            <h3> Viewing timetable of Sandra Phillps!</h3>
                             <tr>
                                 <th scope="col">Class/Day</th>
                                 <th scope="col">1</th>
