@@ -5,9 +5,9 @@
 }
 
 body {
-	background: #FF416C;
-    background-image: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-    background-image: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #a300cc;
+    background-image: -webkit-linear-gradient(to right, #3385ff, #a300cc);
+    background-image: linear-gradient(to right, #3385ff, #a300cc);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
