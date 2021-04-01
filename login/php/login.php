@@ -125,9 +125,19 @@ else{
         }
 	}
     if($rnumm!=1 && $rnum!=1){
-        $m = "User does not exist";
-        $l = "../html/index.html";
-        popup ($m,$l);
+        echo '<script type="text/javascript">
+            Swal.fire({
+                type: "success",
+                title: "Title",
+                text: "Text",
+            })
+            });
+            </script>';
+
+        
+        //$m = "User does not exist";
+        //$l = "../html/index.html";
+        //popup ($m,$l);
     }
 }
 
