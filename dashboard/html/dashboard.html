@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+    <style>
+    .logoutLblPos{
 
+        position:fixed;
+        right:40px;
+        top:25px;
+     }
+    </style>
+<script type="text/javascript">
+    window.history.forward();
+    function noBack()
+    {
+        window.history.forward();
+    }
+</script>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +28,7 @@
     <title>Faculty Dashboard</title>
     
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="../assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -26,7 +41,7 @@
 <![endif]-->
 </head>
 
-<body>
+<body onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>
@@ -69,6 +84,9 @@
                             </a>
                         </li>
                     </ul>
+                </div>
+                <div class="logoutLblPos">
+                    <button type="button"  class="btn btn-light btn-rounded btn-fw"><a  href="../../login/html/index.html"> Logout </a></button>
                 </div>
             </nav>
         </header>
