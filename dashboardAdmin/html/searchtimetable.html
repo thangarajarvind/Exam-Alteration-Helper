@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Dashboard
+    Admin Dashboard
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -27,12 +27,12 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-    <div class="logo"><a class="simple-text logo-normal">
-      Admin
-    </a></div>
+      <div class="logo"><a class="simple-text logo-normal">
+          Admin
+        </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
+          <li class="nav-item">
             <a class="nav-link" href="./dashboard.html">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
@@ -44,7 +44,7 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="./tables.html">
               <i class="material-icons">content_paste</i>
               <p>Activity/Faculty List</p>
@@ -56,7 +56,7 @@
               <p>Duty Allocation</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="./searchtimetable.html">
               <i class="material-icons">calendar_today</i>
               <p>Timetable</p>
@@ -74,12 +74,13 @@
               <p>Add User</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a class="nav-link" href="./changepassword.html">
               <i class="material-icons">vpn_key</i>
               <p>Change Password</p>
             </a>
           </li>
+          
         </ul>
       </div>
     </div>
@@ -88,7 +89,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" >Table List</a>
+            <a class="navbar-brand">Search Time Table</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -153,298 +154,29 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Activity Log</h4>
-                  <p class="card-category">This table shows user activity</p>
+            <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Search Timetable</h4>
+                        <p class="card-category">search Faculty Timetable</p>
+                      </div>
+                      <div class="card-body">
+                        <div class="col-md-8">
+                        <form>
+                            <div class="input-group no-border">
+                            <input type="text" value="" class="form-control" placeholder="Search...">
+                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                             <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
+                            </button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead class=" text-primary">
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Activity
-                        </th>
-                        <th>
-                          Date
-                        </th>
-                        <th>
-                          Time
-                        </th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            CSE101
-                          </td>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                            User Logged in
-                          </td>
-                          <td>
-                            14-03-21
-                          </td>
-                          <td class="text-primary">
-                            10:15 AM
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            ECE201
-                          </td>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            Updated Time Table
-                          </td>
-                          <td>
-                            13-03-21
-                          </td>
-                          <td class="text-primary">
-                            09:10 PM
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            CSE343
-                          </td>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            Changed Password
-                          </td>
-                          <td>
-                            13-03-21
-                          </td>
-                          <td class="text-primary">
-                            06:30 PM
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            CSE421
-                          </td>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            User Logged in 
-                          </td>
-                          <td>
-                            13-03-21
-                          </td>
-                          <td class="text-primary">
-                            05:45 PM
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            ECE513
-                          </td>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Requested for change in schedule
-                          </td>
-                          <td>
-                            13-03-21
-                          </td>
-                          <td class="text-primary">
-                            05:15 PM
-                          </td>
-                        </tr>
-                        <!--
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-primary">
-                            $78,615
-                          </td>
-                        </tr>
-                      -->
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="col-md-12">
-              <div class="card card-plain">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title mt-0"> Faculty List</h4>
-                  <p class="card-category">This table shows the list of faculty</p>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-hover">
-                      <thead class="">
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Email ID
-                        </th>
-                        <th>
-                          Position
-                        </th>
-                        <th>
-                          Department
-                        </th>
-                        <th>
-                          Acess
-                        </th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            CSE101
-                          </td>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                           dakota@gmail.com
-                          </td>
-                          <td>
-                            Head of Department
-                          </td>
-                          <td>
-                            CSE
-                          </td>
-                          <td>
-                            Admin
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            ECE201
-                          </td>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            min@gmail.com
-                          </td>
-                          <td>
-                            Lecturer
-                          </td>
-                          <td>
-                            ECE
-                          </td>
-                          <td>
-                            Faculty
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            CSE303
-                          </td>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            sage@yahoo.com
-                          </td>
-                          <td>
-                            Lab Staff
-                          </td>
-                          <td>
-                            CSE
-                          </td>
-                          <td>
-                            Faculty
-                          </td>
-                        </tr>
-                        <!--
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            Korea, South
-                          </td>
-                          <td>
-                            Overland Park
-                          </td>
-                          <td>
-                            $38,735
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Malawi
-                          </td>
-                          <td>
-                            Feldkirchen in Kärnten
-                          </td>
-                          <td>
-                            $63,542
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td>
-                            $78,615
-                          </td>
-                        </tr>
-                      -->
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      </div>
-  </div>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -545,7 +277,7 @@
         $('.fixed-plugin .background-color .badge').click(function() {
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
-          
+
           var new_color = $(this).data('background-color');
 
           if ($sidebar.length != 0) {
@@ -657,6 +389,13 @@
 
         });
       });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
     });
   </script>
 </body>

@@ -68,7 +68,7 @@ The above copyright notice and this permission notice shall be included in all c
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./timetable.php">
+              <a class="nav-link" href="./searchtimetable.html">
                 <i class="material-icons">calendar_today</i>
                 <p>Timetable</p>
               </a>
@@ -99,7 +99,7 @@ The above copyright notice and this permission notice shall be included in all c
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Status</a>
+            <a class="navbar-brand">Status</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
