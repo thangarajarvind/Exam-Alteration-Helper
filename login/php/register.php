@@ -83,7 +83,7 @@ else{
               $stmt->execute();
               $m = "Account created";
               $l = "../html/index.html";
-              $t = "error";
+              $t = "success";
               pop($l,$m,$t);
               
             }
