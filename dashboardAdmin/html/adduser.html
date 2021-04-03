@@ -32,13 +32,13 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
+          <li class="nav-item">
             <a class="nav-link" href="./dashboard.html">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="./user.html">
               <i class="material-icons">person</i>
               <p>User Profile</p>
@@ -68,18 +68,19 @@
               <p>Status</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="./adduser.html">
               <i class="material-icons">person_add</i>
               <p>Add User</p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a class="nav-link" href="./changepassword.html">
               <i class="material-icons">vpn_key</i>
               <p>Change Password</p>
             </a>
           </li>
+          
         </ul>
       </div>
     </div>
@@ -88,7 +89,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">User Profile</a>
+            <a class="navbar-brand" href="javascript:;">Add User</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -157,110 +158,71 @@
             <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Edit Profile</h4>
-                  <p class="card-category">Complete your profile</p>
+                    <h4 class="card-title">Add User</h4>
+                    <p class="card-category">Complete your profile</p>
+                  </div>
+                  <div class="card-body">
+        <div class="form-container sign-up-container">
+            <form name="myform" action="../php/register.php" method="POST">
+                <div class="row">
+                    <div class="col-md-8">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Name</label>
+                        <input type="text" class="form-control" name="name" required="" />
+                    </div>
                 </div>
-                <div class="card-body">
-                  <form>
-                    <div class="row">
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Company (disabled)</label>
-                          <input type="text" class="form-control" disabled>
-                        </div>
-                      </div>
-                      <div class="col-md-3">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Username</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Email address</label>
-                          <input type="email" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Fist Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Last Name</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Adress</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">City</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Country</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Postal Code</label>
-                          <input type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>About Me</label>
-                          <div class="form-group">
-                            <label class="bmd-label-floating"> This is about me :)</label>
-                            <textarea class="form-control" rows="5"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-                    <div class="clearfix"></div>
-                  </form>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="javascript:;">
-                    <img class="img" src="../assets/img/faces/amma.jpg" />
-                  </a>
+                
+                <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Email</label>
+                        <input type="email" name="email" class="form-control" required="" />
+                    </div>
                 </div>
-                <div class="card-body">
-                  <h6 class="card-category text-gray">Chairperson</h6>
-                  <h4 class="card-title">Amma</h4>
-                  <p class="card-description">
-                    “In this universe it is Love that binds everything together. Love is the very foundation, beauty and fulfillment of life.”
-                  </p>
-                  <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
                 </div>
-              </div>
-            </div>
-          </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Mobile Number</label>
+                            <input type="text" name="mno" class="form-control" required="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <select id="dep" class="form-control" name="dep" required="">
+                            <option value="dep" disabled selected>Department </option>
+                            <option value="cse">CSE</option>
+                            <option value="ece">ECE</option>
+                            <option value="mech">MECH</option>
+                            <option value="aero">AERO</option>
+                            <option value="na">NA</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Password</label>
+                            <input type="password" name="pass1" class="form-control" required="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Confirm Password</label>
+                            <input type="password" name="pass2" class="form-control" required="" />
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right">Add User</button>
+            </form>
         </div>
-      </div>
+
     </div>
   </div>
   <!--   Core JS Files   -->
@@ -475,6 +437,13 @@
 
         });
       });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
     });
   </script>
 </body>

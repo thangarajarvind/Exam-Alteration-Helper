@@ -81,6 +81,12 @@ select{ width:97%;
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="./adduser.html">
+              <i class="material-icons">person_add</i>
+              <p>Add User</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="./changepassword.html">
               <i class="material-icons">vpn_key</i>
               <p>Change Password</p>
