@@ -192,53 +192,122 @@ select{ width:97%;
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                              <th scope="row">Monday</th>
-                                <td class="table-success">Available</td>
-                                <td class="table-success">Available</td>
-                                <td class="table-primary">In Class</td>
-                                <td class="table-primary">In Class</td>
-                                <td class="table-success">Available</td>
-                                <td class="table-primary">In Class</td>
-                                
-                            </tr>
-                            <tr>
-                                <th scope="row">Tuesday</th>
-                                <td class="table-success">Available</td>
-                                <td class="table-danger">On-Duty</td>
-                                <td class="table-primary">In Class</td>
-                                <td class="table-primary">In Class</td>>
-                                <td class="table-danger">On-Duty</td>
-                                <td class="table-success">Available</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Wednesday</th>
-                                <td class="table-success">Available</td>
-                                <td class="table-danger">On-Duty</td>
-                                <td class="table-primary">In Class</td>
-                                <td class="table-success">Available</td>
-                                <td class="table-danger">On-Duty</td>
-                                <td class="table-primary">In Class</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Thursday</th>
-                                <td class="table-success">Available</td>
-                                <td class="table-success">Available</td>
-                                <td class="table-primary">In Class</td>
-                                <td class="table-success">Available</td>
-                                <td class="table-danger">On-Duty</td>
-                                <td class="table-primary">In Class</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Friday</th>
-                                <td class="table-success">Available</td>
-                                <td class="table-primary">In Class</td>
-                                <td class="table-primary">In Class</td>
-                                <td class="table-success">Available</td>
-                                <td class="table-primary">In Class</td>
-                                <td class="table-success">Available</td>
-                            </tr>
+                          <?php
+                            $conn = mysqli_connect("localhost", "root", "", "timetable");
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+                            $sql = "SELECT day,p1,p2,p3,p4,p5,p6 FROM test2";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                            // output data of each row
+                            while($row = $result->fetch_assoc()) {
+                              $day = $row["day"];
+                              $x1 = $row["p1"];
+                              $x2 = $row["p2"];
+                              $x3 = $row["p3"];
+                              $x4 = $row["p4"];
+                              $x5 = $row["p5"];
+                              $x6 = $row["p6"];
                             
+                              if($day == 'Monday'){
+                                $c1 = colour($x1);
+                                $c2 = colour($x2);
+                                $c3 = colour($x3);
+                                $c4 = colour($x4);
+                                $c5 = colour($x5);
+                                $c6 = colour($x6);
+                                echo "<tr><th scope='row'>Monday</th>
+                                <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                </tr>";
+                              }
+                              if($day == 'Tuesday'){
+                                $c1 = colour($x1);
+                                $c2 = colour($x2);
+                                $c3 = colour($x3);
+                                $c4 = colour($x4);
+                                $c5 = colour($x5);
+                                $c6 = colour($x6);
+                                echo "<tr><th scope='row'>Tuesday</th>
+                                <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                </tr>";
+                              }
+                              if($day == 'Wednesday'){
+                                $c1 = colour($x1);
+                                $c2 = colour($x2);
+                                $c3 = colour($x3);
+                                $c4 = colour($x4);
+                                $c5 = colour($x5);
+                                $c6 = colour($x6);
+                                echo "<tr><th scope='row'>Wednesday</th>
+                                <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                </tr>";
+                              }
+                              if($day == 'Thursday'){
+                                $c1 = colour($x1);
+                                $c2 = colour($x2);
+                                $c3 = colour($x3);
+                                $c4 = colour($x4);
+                                $c5 = colour($x5);
+                                $c6 = colour($x6);
+                                echo "<tr><th scope='row'>Thursday</th>
+                                <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                </tr>";
+                              }
+                              if($day == 'Friday'){
+                                $c1 = colour($x1);
+                                $c2 = colour($x2);
+                                $c3 = colour($x3);
+                                $c4 = colour($x4);
+                                $c5 = colour($x5);
+                                $c6 = colour($x6);
+                                echo "<tr><th scope='row'>Friday</th>
+                                <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                </tr>";
+                              }
+                            }
+                            echo "</table>";
+                            } else { echo "0 results"; }
+                            $conn->close();
+                            function colour($p){
+                              if($p == 'Available'){
+                                $c = 'table-success';
+                              }
+                              if($p == 'In-Class'){
+                                $c = 'table-primary';
+                              }
+                              if($p == 'On-Duty'){
+                                $c = 'table-danger';
+                              }
+                              return $c;
+                            }
+                        ?>
                         </tbody>
                     </table>
                 </div>
