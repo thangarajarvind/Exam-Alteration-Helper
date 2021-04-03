@@ -1,3 +1,8 @@
+<?php
+
+  session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -178,10 +183,12 @@ select{ width:97%;
         <div class="col-12">
             <div class="card">
                 <div class="table-responsive">
-                    <table class="table table-hover table-bordered table-striped">
-                        <thead>
-                            <h3> Viewing timetable of Sandra Phillps!</h3>
-                            <tr>
+                  <?php
+                  $name = $_SESSION['name'];
+                    echo '<table class="table table-hover table-bordered table-striped">
+                        <thead>';
+                        echo '<h3>'. $name .' - Timetable</h3>';
+                            echo '<tr>
                                 <th scope="col">Class/Day</th>
                                 <th scope="col">1</th>
                                 <th scope="col">2</th>
@@ -191,14 +198,13 @@ select{ width:97%;
                                 <th scope="col">6</th>
                             </tr>
                         </thead>
-                        <tbody>
-                          <?php
+                        <tbody>';
                             $conn = mysqli_connect("localhost", "root", "", "timetable");
                             // Check connection
                             if ($conn->connect_error) {
                                 die("Connection failed: " . $conn->connect_error);
                             }
-                            $sql = "SELECT day,p1,p2,p3,p4,p5,p6 FROM test2";
+                            $sql = "SELECT day,p1,p2,p3,p4,p5,p6 FROM $name";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                             // output data of each row
