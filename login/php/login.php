@@ -6,6 +6,7 @@ $pass  = $_POST['pass'];
 
 $admine = "admin@se";
 $adminm = "0258";
+$rnumm = 0;
 
 if (empty($user) || empty($pass) )
 {
@@ -51,8 +52,9 @@ else{
             }
             else{
                 $m = "Incorrect Password";
+                $t = "error";
                 $l = "../html/index.html";
-                popup ($m,$l);
+                pop($l,$m,$t);
             }
         }
         else{
@@ -70,7 +72,8 @@ else{
             else{
                 $m = "Incorrect Password";
                 $l = "../html/index.html";
-                popup ($m,$l);
+                $t = "error";
+                pop($l,$m,$t);
             }
         }
     }
@@ -101,7 +104,8 @@ else{
                 else{
                     $m = "Incorrect Password";
                     $l = "../html/index.html";
-                    popup ($m,$l);
+                    $t = "error";
+                    pop($l,$m,$t);
                 }
             }
             else{
@@ -119,30 +123,29 @@ else{
                 else{
                     $m = "Incorrect Password";
                     $l = "../html/index.html";
-                    popup ($m,$l);
+                    $t = "error";
+                    pop($l,$m,$t);
                 }
             }
         }
 	}
+    echo '<script>console.log("Outside")</script>';
     if($rnumm!=1 && $rnum!=1){
-        echo '<script type="text/javascript">
-            Swal.fire({
-                type: "success",
-                title: "Title",
-                text: "Text",
-            })
-            });
-            </script>';
-
-        
-        //$m = "User does not exist";
-        //$l = "../html/index.html";
-        //popup ($m,$l);
+        echo '<script>console.log("Inside")</script>';
+        $l = "../html/index.html";
+        $m = "User does not exist";
+        $t = "error";
+        pop($l,$m,$t);
     }
 }
 
-function popup ($m,$l){
-    echo "<script type='text/javascript'>alert('$m');window.location.href = '$l';window.close();</script>";
+
+function pop ($l,$m,$t){
+    echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
+    echo '<script src="../../js/sweetalert2.all.min.js"></script>';
+    echo '<script type="text/javascript">';
+    echo "setTimeout(function () { Swal.fire('','$m','$t').then(function (result) {if (result.value) {window.location = '$l';}})";
+    echo '},100);</script>';
 }
 
 ?>

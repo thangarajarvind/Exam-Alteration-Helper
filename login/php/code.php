@@ -8,10 +8,10 @@ if($code == $ucode){
     header('Location: ../html/reset.html');
 }
 else{
-    echo '<script language="javascript">';
-    echo 'alert("Invalid Code");';
-    echo 'window.location.href = "../html/entercode.html";';
-    echo 'window.close();';
-    echo '</script>';
+    echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
+    echo '<script src="../../js/sweetalert2.all.min.js"></script>';
+    echo '<script type="text/javascript">';
+    echo "setTimeout(function () { Swal.fire('','Invalid Code','error').then(function (result) {if (result.value) {window.location = '../html/entercode.html';}})";
+    echo '},100);</script>';
 }
 ?>

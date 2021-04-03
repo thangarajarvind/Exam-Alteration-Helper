@@ -83,7 +83,8 @@ else{
               $stmt->execute();
               $m = "Account created";
               $l = "../html/index.html";
-              popup ($m,$l);
+              $t = "error";
+              pop($l,$m,$t);
               
             }
           }
@@ -91,33 +92,43 @@ else{
         else {
           $m = "Password Mismatch";
           $l = "../html/index.html";
-          popup ($m,$l);
+          $t = "error";
+          pop($l,$m,$t);
         }
       }
       if ($rnum!=0) {
         $m = "Email exists already";
         $l = "../html/index.html";
-        popup ($m,$l);
+        $t = "error";
+        pop($l,$m,$t);
     }
     if ($rnumm!=0) {
       $m = "Mobile number exists already";
       $l = "../html/index.html";
-      popup ($m,$l);
+      $t = "error";
+      pop($l,$m,$t);
     }
     if($len!=10){
       $m = "Invalid Mobile number";
       $l = "../html/index.html";
-      popup ($m,$l);
+      $t = "error";
+      pop($l,$m,$t);
     }
     if($plen<8){
       $m = "Password should be over 8 characters";
       $l = "../html/index.html";
-      popup ($m,$l);
+      $t = "error";
+      pop($l,$m,$t);
     }
   }
 }
 
-function popup ($m,$l){
-  echo "<script type='text/javascript'>alert('$m');window.location.href = '$l';window.close();</script>";
+function pop ($l,$m,$t){
+  echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
+  echo '<script src="../../js/sweetalert2.all.min.js"></script>';
+  echo '<script type="text/javascript">';
+  echo "setTimeout(function () { Swal.fire('','$m','$t').then(function (result) {if (result.value) {window.location = '$l';}})";
+  echo '},100);</script>';
 }
+
 ?>

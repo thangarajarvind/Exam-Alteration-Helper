@@ -34,7 +34,8 @@ if($p1 == $p2){
             if ($conn->query($sql) === TRUE) {
                 $m = "Record updated successfully";
                 $l = "../html/index.html";
-                popup ($m,$l);
+                $t = "error";
+                pop($l,$m,$t);
             } else {
                 echo "Error updating record: " . $conn->error;
           }
@@ -54,7 +55,8 @@ if($p1 == $p2){
                 if ($conn->query($sql) === TRUE) {
                     $m = "Record updated successfully";
                     $l = "../html/index.html";
-                    popup ($m,$l);
+                    $t = "error";
+                    pop($l,$m,$t);
                 } else {
                     echo "Error updating record: " . $conn->error;
               }
@@ -64,12 +66,17 @@ if($p1 == $p2){
     if($rnumm!=1 && $rnum!=1){
         $m = "User does not exist";
         $l = "../html/index.html";
-        popup ($m,$l);
+        $t = "error";
+        pop($l,$m,$t);
     }
 }  
 
-function popup ($m,$l){
-    echo "<script type='text/javascript'>alert('$m');window.location.href = '$l';window.close();</script>";
+function pop ($l,$m,$t){
+    echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
+    echo '<script src="../../js/sweetalert2.all.min.js"></script>';
+    echo '<script type="text/javascript">';
+    echo "setTimeout(function () { Swal.fire('','$m','$t').then(function (result) {if (result.value) {window.location = '$l';}})";
+    echo '},100);</script>';
 }
 
 ?>
