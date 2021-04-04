@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    $id = $_SESSION['id'];
+    $conn = new mysqli ("localhost", "root", "", "se");
+    $result = mysqli_query($conn,"SELECT * FROM register where id='$id'");
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['name'];
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
     <style>
@@ -105,11 +114,13 @@
                     </div>
                 </div>
                 <div class="profile-section">
-                    <p class="font-weight-light mb-0 font-18">Sandra Phillip</p>
-                    <span class="op-8 font-14">DEPT : CSE </span>
+                <?php
+                    echo '<p class="font-weight-light mb-0 font-18">'.ucfirst($name).'</p>
+                    <span class="op-8 font-14">DEPT : '.strtoupper($row['dep']).'</span>
                     <div></div>
                     <span class="op-7 font-14">DESIGNATION : Lecturer </span>
-                    <div class="row border-top border-bottom mt-3 no-gutters">
+                    <div class="row border-top border-bottom mt-3 no-gutters">';
+                    ?>
                         
                     </div>
                 </div>
@@ -121,13 +132,13 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap"><span class="hide-menu">Pages</span></li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="dashboard.html" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link" href="dashboard.php" aria-expanded="false">
                                 <i data-feather="home" class="feather-icon"></i>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link sidebar-link" href="pages-profile.html" aria-expanded="false">
+                            <a class="sidebar-link sidebar-link" href="pages-profile.php" aria-expanded="false">
                                 <i data-feather="users" class="feather-icon"></i>
                                 <span class="hide-menu">Profile</span>
                             </a>
@@ -180,7 +191,7 @@
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item"><a href="dashboard.html" class="text-muted">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="dashboard.php" class="text-muted">Home</a></li>
                                     <li class="breadcrumb-item text-muted active" aria-current="page">Profile</li>
                                 </ol>
                             </nav>
@@ -205,8 +216,9 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                    <h4 class="card-title mt-2">Sandra Phillip</h4>
-                                    <h6 class="card-subtitle">DEPT : CSE</h6>
+                                <?php
+                                    echo '<h4 class="card-title mt-2">'.ucfirst($name).'</h4>
+                                    <h6 class="card-subtitle">DEPT : '.strtoupper($row['dep']).'</h6>
                                     <h6 class="card-subtitle"> DESIGNATION : Lecturer</h6>
                                     <div class="row text-center justify-content-md-center">
                                         
@@ -217,11 +229,11 @@
                                 <hr>
                             </div>
                             <div class="card-body"> <small class="text-muted">Email address </small>
-                                <h6>hannagover@gmail.com</h6> <small class="text-muted pt-4 db">Phone</small>
-                                <h6>+91 654 784 547</h6> <small class="text-muted pt-4 db">Address</small>
+                                <h6>'.$row['email'].'</h6> <small class="text-muted pt-4 db">Phone</small>
+                                <h6>'.$row['mno'].'</h6> <small class="text-muted pt-4 db">Address</small>
                                 <h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
-                                <br />
-                                
+                                <br />';
+                                ?>
                             </div>
                         </div>
                     </div>
