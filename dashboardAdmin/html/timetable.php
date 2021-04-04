@@ -187,7 +187,7 @@ select{ width:97%;
                   $name = $_SESSION['name'];
                     echo '<table class="table table-hover table-bordered table-striped">
                         <thead>';
-                        echo '<h3>'. $name .' - Timetable</h3>';
+                        echo '<h3 style="text-align:center">'. $name .' - Timetable</h3>';
                             echo '<tr>
                                 <th scope="col">Class/Day</th>
                                 <th scope="col">1</th>
