@@ -81,6 +81,25 @@ else{
               $stmt = $conn->prepare($INSERT);
               $stmt->bind_param("ssssssss", $name , $email ,$mno, $pass1, $pass2, $dep, $id, $code);
               $stmt->execute();
+              $stmt->close();
+              $DETAILS = "INSERT Into details (id) values(?)";
+              $stmt = $conn->prepare($DETAILS);
+              $stmt->bind_param("s", $id);
+              $stmt->execute();
+              $stmt->close();
+              $sql = "CREATE TABLE $name(
+                day VARCHAR(50) PRIMARY KEY,
+                p1 VARCHAR(30),
+                p2 VARCHAR(30),
+                p3 VARCHAR(30),
+                p4 VARCHAR(30),
+                p5 VARCHAR(30),
+                p6 VARCHAR(30)
+                )";
+              $dbname = "timetable";
+              $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+              $stmt = $conn->prepare($sql);
+              $stmt->execute();
               $m = "Account created";
               $l = "../html/index.html";
               $t = "success";
