@@ -1,0 +1,1 @@
+v#dashboard/assets/libs/chartist/dist :w

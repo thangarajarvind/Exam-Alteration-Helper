@@ -1,0 +1,1 @@
+i;dashboard/assets/libs/bootstrap/dist/js/bootstrap.bundle.js 2jsX£5h

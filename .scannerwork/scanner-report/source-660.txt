@@ -1,0 +1,79 @@
+<?php
+session_start();
+$user = $_POST['user'];
+$_SESSION['user'] = $user;
+$code="";
+if (empty($user))
+{
+    die('Email/Mobile is missing');
+}
+
+$host = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "se";
+
+$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+
+if (mysqli_connect_error()){
+  die('Connect Error ('. mysqli_connect_errno() .') '
+    . mysqli_connect_error());
+}
+else{
+    $SELECT = "SELECT email From register Where email = ?";
+    $stmt = $conn->prepare($SELECT);
+    $stmt->bind_param("s", $user);
+    $stmt->execute();
+    $stmt->bind_result($user);
+    $stmt->store_result();
+    $rnum = $stmt->num_rows;
+    
+    if ($rnum==1) {
+        $stmt->close();
+        $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $_POST['user'] . "'");
+        $row = mysqli_fetch_assoc($result);
+        $code = $row['code'];
+        $_SESSION['code'] = $code;
+        $code = rand(10000,99999);
+        $sql = "UPDATE register SET code='$code' where mno='" . $_POST['user'] . "'"; 
+        $conn->query($sql);
+        header('Location: ../html/entercode.html');
+    }
+    else{
+        $SELECT = "SELECT mno From register Where mno = ?";
+        $stmt = $conn->prepare($SELECT);
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $stmt->bind_result($user);
+        $stmt->store_result();
+        $rnumm = $stmt->num_rows;
+
+        if ($rnumm==1) {
+            $stmt->close();
+            $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $_POST['user'] . "'");
+            $row = mysqli_fetch_assoc($result);
+            $code = $row['code'];
+            $_SESSION['code'] = $code;
+            $code = rand(10000,99999);
+            $sql = "UPDATE register SET code='$code' where mno='" . $_POST['user'] . "'"; 
+            $conn->query($sql);
+            header('Location: ../html/entercode.html');
+        }
+    }
+    if($rnumm!=1 && $rnum!=1){
+        $m = "User does not exist";
+        $l = "../html/index.html";
+        $t = "error";
+        pop($l,$m,$t);
+    }
+}
+
+function pop ($l,$m,$t){
+    echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
+    echo '<script src="../../js/sweetalert2.all.min.js"></script>';
+    echo '<script type="text/javascript">';
+    echo "setTimeout(function () { Swal.fire('','$m','$t').then(function (result) {if (result.value) {window.location = '$l';}})";
+    echo '},100);</script>';
+}
+
+?>

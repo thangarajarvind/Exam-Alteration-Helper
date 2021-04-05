@@ -1,0 +1,1 @@
+j'dashboard/assets/libs/bootstrap/dist/js :ilnp

@@ -1,0 +1,1 @@
+s#dashboard/assets/libs/chart.js/dist :rt
