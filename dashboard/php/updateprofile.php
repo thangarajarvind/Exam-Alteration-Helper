@@ -15,6 +15,13 @@
     
     $flag = 0;
 
+    if($name == NULL && $email == NULL && $mno == NULL && $des == 'Select'  && $addr == NULL && $pin == NULL){
+        echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
+        echo '<script src="../../js/sweetalert2.all.min.js"></script>';
+        echo '<script type="text/javascript">';
+        echo "setTimeout(function () { Swal.fire('','No changes done','error').then(function (result) {if (result.value) {window.location = '../html/pages-profile.php';}})";
+        echo '},100);</script>';
+    }
     if($name!=NULL){
         $flag = $flag+1;
         $sql = "UPDATE register SET name='$name' where id='$id'";

@@ -27,34 +27,50 @@ else{
     $odbpass = $row['pass1'];
     if($opass == $odbpass){
         if($npass == $npass1){
-            $npass = md5($npass);
-            $sql = "UPDATE register SET pass1='$npass',pass2='$npass' where id='$id'"; 
-            if ($conn->query($sql) === TRUE) {
-                $m = "Record updated successfully";
-                $l = "../html/changepassword.html";
-                popup ($m,$l);
+            if(strlen($npass)>7){
+                $npass = md5($npass);
+                $sql = "UPDATE register SET pass1='$npass',pass2='$npass' where id='$id'"; 
+                if ($conn->query($sql) === TRUE) {
+                    $m = "Record updated successfully";
+                    $l = "../html/changepassword.php";
+                    $t = 'success';
+                    popup ($l,$m,$t);
+                }
+                else{
+                    $m = "Error in update";
+                    $l = "../html/changepassword.php";
+                    $t = 'error';
+                    popup ($l,$m,$t);
+                }
             }
             else{
-                $m = "Error in update";
-                $l = "../html/changepassword.html";
-                popup ($m,$l);
+                $m = "Password length should be atleast 8 characters";
+                $l = "../html/changepassword.php";
+                $t = 'error';
+                popup ($l,$m,$t);
             }
         }
         else{
             $m = "New passwords mismatch";
-            $l = "../html/changepassword.html";
-            popup ($m,$l);
+            $l = "../html/changepassword.php";
+            $t = 'error';
+            popup ($l,$m,$t);
         }
     }
     else{
         $m = "Incorrect current password";
-        $l = "../html/changepassword.html";
-        popup ($m,$l);
+        $l = "../html/changepassword.php";
+        $t = 'error';
+        popup ($l,$m,$t);
     }
 }
 
-function popup ($m,$l){
-    echo "<script type='text/javascript'>alert('$m');window.location.href = '$l';window.close();</script>";
+function popup ($l,$m,$t){
+    echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
+    echo '<script src="../../js/sweetalert2.all.min.js"></script>';
+    echo '<script type="text/javascript">';
+    echo "setTimeout(function () { Swal.fire('','$m','$t').then(function (result) {if (result.value) {window.location = '$l';}})";
+    echo '},100);</script>';
 }
 
 ?>
