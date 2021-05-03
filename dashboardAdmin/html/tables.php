@@ -199,7 +199,14 @@
                           $sql1 = "SELECT dsgn FROM details where id = '$id'";
                           $result1 = $conn->query($sql1);
                           $row1 = $result1->fetch_assoc();
-                          echo "<tr><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". strtoupper($row["dep"]) . "</td><td>" . $row1["dsgn"] . "</td></tr>";
+                          
+                          if($row1['dsgn']!=NULL){
+                            $dsgn = $row1['dsgn'];
+                          }
+                          else{
+                            $dsgn = '';
+                          }
+                          echo "<tr><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>". strtoupper($row["dep"]) . "</td><td>" . $dsgn . "</td></tr>";
                         }
                         echo "</table>";
                         } else { echo "0 results"; }
