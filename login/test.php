@@ -13,6 +13,11 @@ $time = substr($time,0,2);
 $time = (int)$time;
 
 $valid = 0;
+$hour = '';
+
+#Change this to manual access time and day
+#$time = 9;
+#$day = 'Monday';
 
 if($time == 9){
     $hour = 'p1';
@@ -78,7 +83,62 @@ if($valid == 1){
         $ctn = mysqli_connect("localhost", "root", "", "se");
         $sql = "UPDATE work SET status=$status where name='$tname'";
         $ctn->query($sql);
+        
+        if($c != 'On-Duty'){
+            $sql = "UPDATE work SET room='-' where name='$tname'";
+            $ctn->query($sql);
+        }
     }
 }
+else{
+    if($hour == 'lunch'){
+        $ctn = mysqli_connect("localhost", "root", "", "se");
+        $sql = "UPDATE work SET status=9";
+        $ctn->query($sql);
+        $sql = "UPDATE work SET room='-'";
+        $ctn->query($sql);
+    }
+    else{
+        $ctn = mysqli_connect("localhost", "root", "", "se");
+        $sql = "UPDATE work SET status=99";
+        $ctn->query($sql);
+        $sql = "UPDATE work SET room='-'";
+        $ctn->query($sql);
+    }
+}
+
+$ctn = mysqli_connect("localhost", "root", "", "se");
+$sql = "UPDATE room SET status=0";
+$ctn->query($sql);
+$sql = "UPDATE room SET id='-'";
+$ctn->query($sql);
+
+$date = date("Y-m-d");
+$conn = mysqli_connect("localhost", "root", "", "se");
+$sql = "SELECT * FROM room";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+// output data of each row
+    while($row = $result->fetch_assoc()) {
+        $rno = $row["roomno"];
+        $sql1 = "SELECT * FROM roomstat where room='$rno' and date='$date' and hour='$hour'";
+        $result1 = $conn->query($sql1);
+        if ($result1->num_rows > 0) {
+        // output data of each row
+            while($row1 = $result1->fetch_assoc()) {
+                $id = $row1["id"];
+                $ctn = mysqli_connect("localhost", "root", "", "se");
+                $sql = "UPDATE room SET status=1 where roomno='$rno'";
+                $ctn->query($sql);
+                $sql = "UPDATE room SET id='$id' where roomno='$rno'";
+                $ctn->query($sql);
+                $sql = "UPDATE work SET room='$rno' where id='$id'";
+                $ctn->query($sql);
+            }
+        }
+    }
+}
+
+
 
 ?>
