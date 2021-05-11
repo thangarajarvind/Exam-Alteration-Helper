@@ -15,6 +15,46 @@
 }
 select{ width:97%;
     height: 40px;}
+    
+      .tooltip12 {
+        position: relative;
+        display: inline-block;
+
+      }
+
+      .tooltip12 .tooltiptext {
+        visibility: hidden;
+        width: 140px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 150%;
+        left: 50%;
+        margin-left: -60px;
+        /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+        opacity: 0;
+        transition: opacity 1s;
+      }
+
+      .tooltip12 .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+      }
+
+      .tooltip12:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
 </style>
 <head>
   <meta charset="utf-8" />
@@ -206,6 +246,9 @@ select{ width:97%;
                             }
                             $sql = "SELECT day,p1,p2,p3,p4,p5,p6 FROM $name";
                             $result = $conn->query($sql);
+                            $u = '<div class="tooltip12">
+                            <span class="tooltiptext">Tooltip text</span>
+                            </div>';
                             if ($result->num_rows > 0) {
                             // output data of each row
                             while($row = $result->fetch_assoc()) {
@@ -225,7 +268,7 @@ select{ width:97%;
                                 $c5 = colour($x5);
                                 $c6 = colour($x6);
                                 echo "<tr><th scope='row'>Monday</th>
-                                <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                <td class='" .$c1. "'>" . $row["p1"] ."</td>
                                 <td class='" .$c2. "'>" . $row["p2"] ."</td>
                                 <td class='" .$c3. "'>" . $row["p3"] ."</td>
                                 <td class='" .$c4. "'>" . $row["p4"] ."</td>
