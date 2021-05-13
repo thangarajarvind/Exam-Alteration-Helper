@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <?php
+        session_start();
+    ?>
 
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
@@ -95,7 +98,7 @@
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="nduty.html">New duty</a></li>
-                <li class="nav-item"> <a class="nav-link" href="alloc.php">Allocate staff</a></li>
+                <li class="nav-item"> <a class="nav-link" href="alloc.php">Allocate Staff</a></li>
               </ul>
             </div>
           </li>
@@ -204,47 +207,67 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-5">
-              <div class="card">
+            <div class="col-md-4">
+              <div class="card card-plain">
+              <form name="myform" action="../php/alloc.php" method="POST">
                 <div class="card-header card-header-primary">
-                    <h4 class="card-title">Create duty</h4>
-                  </div>
-                  <div class="card-body">
-                    <div class="form-container sign-up-container">
-                        <form name="myform" action="../php/nduty.php" method="POST">
-                            <div class="row">
-                                <div class="col-md-4">
-                                        <input id="datepicker" placeholder="Date" name="date" class="form-control form-control-line" required="" autocomplete="off">
-                                        <script>
-                                            $('#datepicker').datepicker({
-                                                disable: [1,7],
-                                            });
-                                        </script>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                          <select type="text" id="des" placeholder="Period" name="hour"
-                                            class="form-control form-control-line" required="">
-                                            <option value="Select">Period</option>
-                                            <option value="p1">P1</option>
-                                            <option value="p2">P2</option>
-                                            <option value="p3">P3</option>
-                                            <option value="p4">P4</option>
-                                            <option value="p5">P5</option>
-                                            <option value="p6">P6</option>
-                                          </select>
-                                        </div>
-                                      </div>
-                                </div>
-                            <button type="submit" class="btn btn-primary pull-right">Search Rooms</button>
-                        </form>
-                    </div>
+                  <h4 class="card-title mt-0">Manual Allocation</h4>
+                  <p class="card-category">Following duties are yet to be allocated</p>
                 </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                  <style>
+                    #green
+                    {
+                      background-color: green;
+                      }
+                    </style>
+                    <table class="table table-hover">
+                      <thead class="">
+                        <th>
+                            
+                        </th>
+                        <th>
+                          DNo
+                        </th>
+                        <th>
+                          Room No
+                        </th>
+                        <th>
+                          Date
+                        </th>
+                        <th>
+                          Hour
+                        </th>
+                      </thead>
+                      <tbody>
+                          <?php
+                            $conn = mysqli_connect("localhost", "root", "", "se");
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            }
+                            $sql = "SELECT * FROM roomstat where id='-' order by date asc";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                            // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                  $n = $row['dno'];
+                                  echo "<td> <input type='radio' id='$n' name='dno' value='$n'> </td><td>" . $row["dno"]. "</td><td>" . $row["room"] . "</td><td>" . $row["date"] . "</td><td>" . $row["hour"] . "</td></tr>";
+                                }
+                            }
+                            echo "</table>";
+                          ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary pull-right">Allocate</button>
+            </form>
             </div>
+          </div>
         </div>
-    </div>
   <!--   Core JS Files   -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->

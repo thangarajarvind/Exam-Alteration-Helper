@@ -36,7 +36,7 @@
         $stmt->bind_param("s", $nno);
         $stmt->execute();
 
-        $sql = "UPDATE roomstat SET room='$room',date='$date',hour='$hour' where dno='$nno'";
+        $sql = "UPDATE roomstat SET room='$room',date='$date',hour='$hour',id='-' where dno='$nno'";
         $conn->query($sql);
 
         $m = "Duty created";
