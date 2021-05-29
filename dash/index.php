@@ -91,7 +91,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="status/scover.php">
+            <a class="nav-link" href="html/profile.php">
               <i class="icon-contract menu-icon"></i>
               <span class="menu-title">Profile</span>
             </a>

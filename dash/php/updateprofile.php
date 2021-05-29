@@ -19,7 +19,7 @@
         echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
         echo '<script src="../../js/sweetalert2.all.min.js"></script>';
         echo '<script type="text/javascript">';
-        echo "setTimeout(function () { Swal.fire('','No changes done','error').then(function (result) {if (result.value) {window.location = '../html/pages-profile.php';}})";
+        echo "setTimeout(function () { Swal.fire('','No changes done','error').then(function (result) {if (result.value) {window.location = '../html/profile.php';}})";
         echo '},100);</script>';
     }
     if($name!=NULL){
@@ -56,6 +56,6 @@
         echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
         echo '<script src="../../js/sweetalert2.all.min.js"></script>';
         echo '<script type="text/javascript">';
-        echo "setTimeout(function () { Swal.fire('','Update successful','success').then(function (result) {if (result.value) {window.location = '../html/pages-profile.php';}})";
+        echo "setTimeout(function () { Swal.fire('','Update successful','success').then(function (result) {if (result.value) {window.location = '../html/profile.php';}})";
         echo '},100);</script>';
     }
