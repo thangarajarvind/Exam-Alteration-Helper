@@ -11,7 +11,25 @@
     $result = mysqli_query($conn,"SELECT * FROM details where id='$id'");
     $row1 = mysqli_fetch_assoc($result);
     $name = $row['name'];
+    $_SESSION['name'] = $name;
+    $empty = 0;
 
+    $conn = mysqli_connect("localhost", "root", "", "timetable");
+    // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT * FROM $name WHERE day='Friday'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        $nan = $row["p1"];
+      }
+    }
+    if($nan == 'nan'){
+      $empty = $empty+1;
+    }
 ?>
 <script>
     function printPageArea(areaID){
@@ -60,10 +78,12 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         </button>
         <ul class="navbar-nav navbar-nav-right">
+          
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
             </a>
           </li>
+          
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
               <i class="icon-ellipsis"></i>
@@ -79,6 +99,16 @@
                 Logout
               </div>
               </a>
+              <?php
+              if($empty == 1){
+                echo '<a class="dropdown-item" href="html/uploadtimetableStart.php">
+                <div class="logoutLblPos">
+                  <i class="ti-power-on text-primary"></i>
+                  Feed Timetable
+                </div>
+                </a>';
+              }
+              ?>
             </div>
           </li>
           <li class="nav-item nav-settings d-none d-lg-flex">
@@ -267,6 +297,10 @@
                                     if($p == 'On-Duty'){
                                         $c = 'table-danger';
                                     }
+                                    if($p == 'nan'){
+                                      $c = 'table-warning';
+
+                                  }
                                     return $c;
                                     }
                                 ?> 

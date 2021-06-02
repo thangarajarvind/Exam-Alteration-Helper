@@ -12,6 +12,10 @@
             height: 40px;}
         </style>
 <head>
+  <?php
+    session_start();
+    $name = $_SESSION['name'];
+  ?>
 <script src="../js/jquery-3.6.0.min.js"></script>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -111,59 +115,53 @@
                     <div class="card-body">
                       <h4 class="card-title">Update Timetable</h4>
                       <h4 class="card-title">Monday</h4>
-                      <form class="forms-sample" action="" method="POST">  
+                      <form class="forms-sample" action="../php/mon.php" method="POST">  
                         <div class="form-group" >
                           <label for="exampleInputUsername1">P1</label>
                           <select onchange="this.className=this.options[this.selectedIndex].className"
-                                     class ="green" id="p1" > 
+                                     class ="green" id="p1" name='p1'> 
                                           <option selected="selected" class="green">Available</option>
-                                          <option class="red">On Duty</option>
-                                          <option class="blue">In Class</option>
+                                          <option class="blue">In-Class</option>
                                       </select>
                         </div>
                           <div class="form-group" >
                             <label for="exampleInputUsername1">P2</label>
                             <select onchange="this.className=this.options[this.selectedIndex].className"
-                                       class ="green" id="p2" > 
+                                       class ="green" id="p2" name='p2'> 
                                             <option selected="selected" class="green">Available</option>
-                                            <option class="red">On Duty</option>
-                                            <option class="blue">In Class</option>
+                                            <option class="blue">In-Class</option>
                                         </select>
                           </div>
                         <div class="form-group" >
                           <label for="exampleInputUsername1">P3</label>
                           <select onchange="this.className=this.options[this.selectedIndex].className"
-                                     class ="green" id="p3" > 
+                                     class ="green" id="p3" name='p3' > 
                                           <option selected="selected" class="green">Available</option>
-                                          <option class="red">On Duty</option>
-                                          <option class="blue">In Class</option>
+                                          <option class="blue">In-Class</option>
                                       </select>
                         </div>
                         <div class="form-group" >
                           <label for="exampleInputUsername1">P4</label>
                           <select onchange="this.className=this.options[this.selectedIndex].className"
-                                     class ="green" id="p4" > 
+                                     class ="green" id="p4" name='p4' > 
                                           <option selected="selected" class="green">Available</option>
-                                          <option class="red">On Duty</option>
-                                          <option class="blue">In Class</option>
+                                          <option class="blue">In-Class</option>
                                       </select>
                         </div>
                         <div class="form-group" >
                           <label for="exampleInputUsername1">P5</label>
                           <select onchange="this.className=this.options[this.selectedIndex].className"
-                                     class ="green" id="p5" > 
+                                     class ="green" id="p5" name='p5' > 
                                           <option selected="selected" class="green">Available</option>
-                                          <option class="red">On Duty</option>
-                                          <option class="blue">In Class</option>
+                                          <option class="blue">In-Class</option>
                                       </select>
                         </div>
                         <div class="form-group" >
                           <label for="exampleInputUsername1">P6</label>
                           <select onchange="this.className=this.options[this.selectedIndex].className"
-                                     class ="green" id="p6" > 
+                                     class ="green" id="p6" name='p6' > 
                                           <option selected="selected" class="green">Available</option>
-                                          <option class="red">On Duty</option>
-                                          <option class="blue">In Class</option>
+                                          <option class="blue">In-Class</option>
                                       </select>
                         </div>
                     </div>
@@ -174,14 +172,14 @@
                   <div class="col-md-9 grid-margin">
                     <div class="card">
                       <div class="card-body">
-                        <h4 class="card-title">Timetable</h4>
                         <div class="table-responsive">
-                            <table class="table table-hover table-bordered table-striped">
-                                <thead>
-                                <br>
-                                
-                                <br>
-                                    <tr>
+                        <?php
+                            echo '<table class="table table-hover table-bordered table-striped">
+                                <thead>';
+                                echo '<br>';
+                                echo '<h3 style="text-align:center">Timetable</h3>';
+                                echo '<br>';
+                                    echo '<tr>
                                         <th scope="col">Day\Class</th>
                                         <th scope="col">1</th>
                                         <th scope="col">2</th>
@@ -191,47 +189,126 @@
                                         <th scope="col">6</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr><th scope='row'>Monday</th>
-                                        <td class="table-primary">"In Class"</td>
-                                        <td class="table-primary">"In Class"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-primary">"In Class"</td>
-                                        <td class="table-danger">"On Duty"</td>
-                                        <td class="table-success">"Available"</td>
-                                        </tr>
-                                    <tr><th scope='row'>Tuesday</th>
-                                        <td class="table-primary">"In Class"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-primary">"In Class"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-success">"Available"</td>
-                                        </tr>
-                                        <tr><th scope='row'>Wednesday</th>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-primary">"In Class"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-primary">"In Class"</td>
-                                        <td class="table-success">"Available"</td>
-                                        </tr>
-                                        <tr><th scope='row'>Thursday</th>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-danger">"On Duty"</td>
-                                        <td class="table-success">"Available"</td>
-                                        </tr>
-                                        <tr><th scope='row'>Friday</th>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-success">"Available"</td>
-                                        <td class="table-primary">"In Class"</td>
-                                        <td class="table-danger">"On Duty"</td>
-                                        <td class="table-primary">"In Class"</td>
-                                        <td class="table-primary">"In Class"</td>
-                                        </tr>
+                                <tbody>';
+                                    $conn = mysqli_connect("localhost", "root", "", "timetable");
+                                    // Check connection
+                                    if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                    }
+                                    $sql = "SELECT day,p1,p2,p3,p4,p5,p6 FROM $name";
+                                    $result = $conn->query($sql);
+                                    if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                    $day = $row["day"];
+                                    $x1 = $row["p1"];
+                                    $x2 = $row["p2"];
+                                    $x3 = $row["p3"];
+                                    $x4 = $row["p4"];
+                                    $x5 = $row["p5"];
+                                    $x6 = $row["p6"];
+                                    
+                                    if($day == 'Monday'){
+                                        $c1 = colour($x1);
+                                        $c2 = colour($x2);
+                                        $c3 = colour($x3);
+                                        $c4 = colour($x4);
+                                        $c5 = colour($x5);
+                                        $c6 = colour($x6);
+                                        echo "<tr><th scope='row'>Monday</th>
+                                        <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                        <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                        <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                        <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                        <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                        <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                        </tr>";
+                                    }
+                                    if($day == 'Tuesday'){
+                                        $c1 = colour($x1);
+                                        $c2 = colour($x2);
+                                        $c3 = colour($x3);
+                                        $c4 = colour($x4);
+                                        $c5 = colour($x5);
+                                        $c6 = colour($x6);
+                                        echo "<tr><th scope='row'>Tuesday</th>
+                                        <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                        <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                        <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                        <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                        <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                        <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                        </tr>";
+                                    }
+                                    if($day == 'Wednesday'){
+                                        $c1 = colour($x1);
+                                        $c2 = colour($x2);
+                                        $c3 = colour($x3);
+                                        $c4 = colour($x4);
+                                        $c5 = colour($x5);
+                                        $c6 = colour($x6);
+                                        echo "<tr><th scope='row'>Wednesday</th>
+                                        <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                        <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                        <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                        <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                        <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                        <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                        </tr>";
+                                    }
+                                    if($day == 'Thursday'){
+                                        $c1 = colour($x1);
+                                        $c2 = colour($x2);
+                                        $c3 = colour($x3);
+                                        $c4 = colour($x4);
+                                        $c5 = colour($x5);
+                                        $c6 = colour($x6);
+                                        echo "<tr><th scope='row'>Thursday</th>
+                                        <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                        <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                        <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                        <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                        <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                        <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                        </tr>";
+                                    }
+                                    if($day == 'Friday'){
+                                        $c1 = colour($x1);
+                                        $c2 = colour($x2);
+                                        $c3 = colour($x3);
+                                        $c4 = colour($x4);
+                                        $c5 = colour($x5);
+                                        $c6 = colour($x6);
+                                        echo "<tr><th scope='row'>Friday</th>
+                                        <td class='" .$c1. "'>" . $row["p1"] . "</td>
+                                        <td class='" .$c2. "'>" . $row["p2"] ."</td>
+                                        <td class='" .$c3. "'>" . $row["p3"] ."</td>
+                                        <td class='" .$c4. "'>" . $row["p4"] ."</td>
+                                        <td class='" .$c5. "'>" . $row["p5"] ."</td>
+                                        <td class='" .$c6. "'>" . $row["p6"] ."</td>
+                                        </tr>";
+                                    }
+                                    }
+                                    echo "</table>";
+                                    } else { echo "0 results"; }
+                                    $conn->close();
+                                    function colour($p){
+                                    if($p == 'Available'){
+                                        $c = 'table-success';
+                                    }
+                                    if($p == 'In-Class'){
+                                        $c = 'table-primary';
+                                    }
+                                    if($p == 'On-Duty'){
+                                        $c = 'table-danger';
+                                    }
+                                    if($p == 'nan'){
+                                      $c = 'table-warning';
+
+                                  }
+                                    return $c;
+                                    }
+                                ?> 
                             </tbody>
                         </table>
                         </div>
