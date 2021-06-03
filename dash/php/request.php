@@ -30,32 +30,51 @@ if(isset($_POST['reason'])){
     $reason = $_POST['reason'];
 }
 
-$conn = new mysqli ("localhost", "root", "", "se");
+$conn = new mysqli ("localhost", "root", "", "timetable");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$nid = 0;
-$sql = "SELECT * FROM request ORDER BY cid DESC LIMIT 1";
+
+$sql = "SELECT * FROM $name WHERE day='$day'";
 $result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $cid = $row["cid"];
+$row = $result->fetch_assoc();
+$s = $row[$p];
+
+if($s == 'On-Duty'){
+    $conn = new mysqli ("localhost", "root", "", "se");
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $nid = 0;
+    $sql = "SELECT * FROM request ORDER BY cid DESC LIMIT 1";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $cid = $row["cid"];
+        }
+    }
+    $nid = $cid+1;
+
+    $sql = "INSERT INTO request (cid) VALUES ($nid)";
+    mysqli_query($conn, $sql);
+
+    $status = 0;
+
+    $sql = "UPDATE request SET name='$name',day='$day',period='$p',reason='$reason',alternate='$alt',status='$status' where cid='$nid'";
+    if ($conn->query($sql) === TRUE) {
+        $m = "Request success";
+        $l = "../html/TT_change_req.html";
+        $t = "success";
+        pop($l,$m,$t);
     }
 }
-$nid = $cid+1;
-
-$sql = "INSERT INTO request (cid) VALUES ($nid)";
-mysqli_query($conn, $sql);
-
-$status = 0;
-
-$sql = "UPDATE request SET name='$name',day='$day',period='$p',reason='$reason',alternate='$alt',status='$status' where cid='$nid'";
-if ($conn->query($sql) === TRUE) {
-    $m = "Request success";
+else{
+    $m = "No duty allocated";
     $l = "../html/TT_change_req.html";
-    $t = "success";
+    $t = "error";
     pop($l,$m,$t);
 }
 
