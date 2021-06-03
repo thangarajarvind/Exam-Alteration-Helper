@@ -89,7 +89,7 @@
               <p>Activity/Faculty List</p>
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="bi bi-laptop"></i>
               <p>Duty actions</p>
@@ -102,10 +102,10 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./req.php">
+          <li class="nav-item active">
+            <a class="nav-link" href="req.php">
               <i class="material-icons">library_books</i>
-              <p>Change request</p>
+              <p>Change Request</p>
             </a>
           </li>
           <li class="nav-item">
@@ -141,7 +141,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand">Duty creation</a>
+            <a class="navbar-brand">Duty change</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -207,12 +207,12 @@
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-8">
               <div class="card card-plain">
-              <form name="myform" action="../php/alloc.php" method="POST">
+              <form name="myform" method="POST">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title mt-0">Manual Allocation</h4>
-                  <p class="card-category">Following duties are yet to be allocated</p>
+                  <h4 class="card-title mt-0">Duty change requests</h4>
+                  <p class="card-category">Following requests given by staffs to change their duty</p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -228,16 +228,22 @@
                             
                         </th>
                         <th>
-                          DNo
+                          C ID
                         </th>
                         <th>
-                          Room No
+                          Name
                         </th>
                         <th>
-                          Date
+                          Day
                         </th>
                         <th>
-                          Hour
+                          Period
+                        </th>
+                        <th>
+                          Reason
+                        </th>
+                        <th>
+                          Alternate Staff
                         </th>
                       </thead>
                       <tbody>
@@ -247,23 +253,37 @@
                             if ($conn->connect_error) {
                                 die("Connection failed: " . $conn->connect_error);
                             }
-                            $sql = "SELECT * FROM roomstat where id='-' order by date asc";
+                            $sql = "SELECT * FROM request where status=0";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                             // output data of each row
                                 while($row = $result->fetch_assoc()) {
-                                  $n = $row['dno'];
-                                  echo "<td> <input type='radio' id='$n' name='dno' value='$n'> </td><td>" . $row["dno"]. "</td><td>" . $row["room"] . "</td><td>" . $row["date"] . "</td><td>" . $row["hour"] . "</td></tr>";
+                                  $n = $row['cid'];
+                                  echo "<td> <input type='radio' id='$n' name='cid' value='$n'> </td><td>" . $row["cid"]. "</td><td>" . $row["name"] . "</td><td>" . $row["day"] . "</td><td>" . $row["period"] . "</td><td>" . $row["reason"] . "</td><td>" . $row["alternate"] . "</td></tr>";
                                 }
                             }
+                            else{
+                                $m = "No pending requests";
+                                $l = "dashboard.html";
+                                $t = "success";
+                                pop($l,$m,$t);
+                            }
                             echo "</table>";
+                            function pop ($l,$m,$t){
+                                echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
+                                echo '<script src="../../js/sweetalert2.all.min.js"></script>';
+                                echo '<script type="text/javascript">';
+                                echo "setTimeout(function () { Swal.fire('','$m','$t').then(function (result) {if (result.value) {window.location = '$l';}})";
+                                echo '},100);</script>';
+                            }
                           ?>
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary pull-right">Allocate</button>
+              <button type="submit" class="btn btn-primary pull-right" formaction="../php/req.php">Approve</button>
+              <button type="submit" class="btn btn-primary pull-right" formaction="../php/rcancel.php">Reject</button>
             </form>
             </div>
           </div>

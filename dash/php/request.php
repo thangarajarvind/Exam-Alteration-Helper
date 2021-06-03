@@ -47,6 +47,23 @@ if($s == 'On-Duty'){
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
+
+    $sql = "SELECT * FROM roomstat WHERE id='$id'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $date = $row['date'];
+            $hour = $row['hour'];
+            $dno = $row['dno'];
+            $timestamp = strtotime($date);
+            $dbday = date('l', $timestamp);
+            if($p == $hour && $dbday == $day){
+                $duty = $dno;
+            }
+        }
+    }
+
     $nid = 0;
     $sql = "SELECT * FROM request ORDER BY cid DESC LIMIT 1";
     $result = $conn->query($sql);
@@ -63,7 +80,7 @@ if($s == 'On-Duty'){
 
     $status = 0;
 
-    $sql = "UPDATE request SET name='$name',day='$day',period='$p',reason='$reason',alternate='$alt',status='$status' where cid='$nid'";
+    $sql = "UPDATE request SET name='$name',day='$day',period='$p',reason='$reason',alternate='$alt',status='$status',dno='$dno' where cid='$nid'";
     if ($conn->query($sql) === TRUE) {
         $m = "Request success";
         $l = "../html/TT_change_req.html";

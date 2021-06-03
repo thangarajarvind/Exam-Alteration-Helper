@@ -2,13 +2,13 @@
 
 session_start();
 
-$dno = '';
-if(isset($_POST['dno'])){
-    $dno = $_POST['dno'];
+$cid = '';
+if(isset($_POST['cid'])){
+    $cid = $_POST['cid'];
 }
 else{
-    $m = "Select a duty";
-    $l = "../html/alloc.php";
+    $m = "Select a request";
+    $l = "../html/req.php";
     $t = "error";
     pop($l,$m,$t);
 }
@@ -20,18 +20,17 @@ $conn = mysqli_connect("localhost", "root", "", "se");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM roomstat where dno='$dno'";
+$sql = "SELECT * FROM request where cid='$cid'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        $room = $row['room'];
-        $date = $row['date'];
-        $hour = $row['hour'];
+        $day = $row['day'];
+        $hour = $row['period'];
+        $dno = $row['dno'];
+        $rname = $row['name'];
     }
 }
-
-$day = date('l',strtotime($date));
 
 $dbname = 'timetable';
 $connec = mysqli_connect("localhost", "root", "");
@@ -60,12 +59,15 @@ while ($row1 = mysqli_fetch_row($result1)) {
     }
 }
 
-
 $_SESSION['fstaff'] = $freestaff;
 $_SESSION['dno'] = $dno;
-$_SESSION['day'] = $day;
+$_SESSION['rname'] = $rname;
+$_SESSION['cid'] = $cid;
 $_SESSION['hour'] = $hour;
-header("Location: ../html/alloc1.php");
+$_SESSION['day'] = $day;
+
+
+header("Location: ../html/req1.php");
 
 function pop ($l,$m,$t){
     echo '<script src="../../js/jquery-3.6.0.min.js"></script>';

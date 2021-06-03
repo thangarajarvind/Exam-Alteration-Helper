@@ -193,6 +193,10 @@ The above copyright notice and this permission notice shall be included in all c
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
                           $c = $row["status"];
+                          if($c == 99){
+                            $c_code = "fa fa-circle text-dark";
+                            $c_txt = "Out of duty";
+                          }
                           if($c == 2){
                             $c_code = "fa fa-circle text-warning";
                             $c_txt = "In class";

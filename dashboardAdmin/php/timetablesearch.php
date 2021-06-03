@@ -6,7 +6,7 @@ $host = "localhost";
 $dbusername = "root";
 $dbpassword = "";
 $dbname = "timetable";
-
+echo $id;
 // Create connection
 $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
 
@@ -16,28 +16,12 @@ if (mysqli_connect_error()){
 }
 
 else{
-    $SELECT = "SELECT id From search Where id = ?";
-    $stmt = $conn->prepare($SELECT);
-    $stmt->bind_param("s", $id);
-    $stmt->execute();
-    $stmt->bind_result($id);
-    $stmt->store_result();
-    $rnum = $stmt->num_rows;
-
-    if($rnum == 1){
         $conn = new mysqli ("localhost", "root", "", "se");
         $result = mysqli_query($conn,"SELECT name FROM register where id='$id'");
         $row = mysqli_fetch_assoc($result);
         $name = $row['name'];
         $_SESSION['name'] = $name;
         header('Location: ../html/timetable.php');
-    }
-    else{
-        $l = "../html/searchtimetable.html";
-        $m = "Timetable does not exist";
-        $t = "error";
-        pop($l,$m,$t);
-    }
 }
 
 function pop ($l,$m,$t){
