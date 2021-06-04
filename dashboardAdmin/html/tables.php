@@ -82,6 +82,12 @@
                 <p>Timetable</p>
               </a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="req.php">
+              <i class="bi bi-bookmarks"></i>
+              <p>Request Handling</p>
+            </a>
+          </li>
             <li class="nav-item ">
               <a class="nav-link" href="./status.php">
                 <i class="material-icons">done_all</i>

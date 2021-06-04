@@ -69,72 +69,71 @@
       <div class="logo"><a class="simple-text logo-normal">
           Admin
         </a></div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="dashboard.html">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
-              <i class="material-icons">person</i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.php">
-              <i class="material-icons">content_paste</i>
-              <p>Activity/Faculty List</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="bi bi-laptop"></i>
-              <p>Duty actions</p>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="nduty.html">New duty</a></li>
-                <li class="nav-item"> <a class="nav-link" href="alloc.php">Allocate Staff</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item active">
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="dashboard.html">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="user.html">
+                <i class="material-icons">person</i>
+                <p>User Profile</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="./tables.php">
+                <i class="material-icons">content_paste</i>
+                <p>Activity/Faculty List</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="nduty.html">
+                <i class="bi bi-calendar3-week"></i>
+                <p>Create Duty</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="alloc.php">
+                <i class="bi bi-laptop"></i>
+                <p>Allocate staff</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./searchtimetable.html">
+                <i class="material-icons">calendar_today</i>
+                <p>Timetable</p>
+              </a>
+            </li>
+            <li class="nav-item active">
             <a class="nav-link" href="req.php">
-              <i class="material-icons">library_books</i>
-              <p>Change Request</p>
+              <i class="bi bi-bookmarks"></i>
+              <p>Request Handling</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./searchtimetable.html">
-              <i class="material-icons">calendar_today</i>
-              <p>Timetable</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./status.php">
-              <i class="material-icons">done_all</i>
-              <p>Status</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./adduser.html">
-              <i class="material-icons">person_add</i>
-              <p>Add User</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./changepassword.html">
-              <i class="material-icons">vpn_key</i>
-              <p>Change Password</p>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
+            <li class="nav-item ">
+              <a class="nav-link" href="./status.php">
+                <i class="material-icons">done_all</i>
+                <p>Status</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./adduser.html">
+                <i class="material-icons">person_add</i>
+                <p>Add User</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="./changepassword.html">
+                <i class="material-icons">vpn_key</i>
+                <p>Change Password</p>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
     </div>
     <div class="main-panel">
       <!-- Navbar -->
