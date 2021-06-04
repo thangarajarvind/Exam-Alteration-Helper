@@ -57,11 +57,11 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+  <link rel="shortcut icon" href="images/favicon.png" sizes="32x32"/>
   <style>
     .navbar-nav {
         position: relative;
-        width: 140px;
+        width: 38px;
       }
   </style>
 </head>
@@ -71,7 +71,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-nav" href="cindex.php"><img src="../images/logo.png" /></a>
+        <a class="navbar-nav" href="cindex.php"><img src="images/logo.png" /></a>
         <a class="navbar-brand brand-logo-mini" href="cindex.php"><img src="images/logo-mini.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -88,12 +88,14 @@
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
               <i class="icon-ellipsis"></i>
             </a>
-            <a class="btn bg-blue btn-light mx-1px text-95" href="javascript:void(0);" onclick="printPageArea('printableArea')" data-title="Print">
-              <i class="mr-1 fa fa-print text-info-m1 text-120 w-2"></i>
-                Print TT
-            </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-            <a class="dropdown-item" href="../../login/html/cindex.html">
+            <a class="dropdown-item" href="javascript:void(0);" onclick="printPageArea('printableArea')" data-title="Print">
+              <div class="logoutLblPos">
+                <i class="ti-printer text-primary"></i>
+                Print TT
+              </div>
+              </a>
+            <a class="dropdown-item" href="../../login/html/index.html">
               <div class="logoutLblPos">
                 <i class="ti-power-off text-primary"></i>
                 Logout
@@ -103,7 +105,7 @@
               if($empty == 1){
                 echo '<a class="dropdown-item" href="html/uploadtimetableStart.php">
                 <div class="logoutLblPos">
-                  <i class="ti-power-on text-primary"></i>
+                  <i class="ti-marker-alt text-primary"></i>
                   Feed Timetable
                 </div>
                 </a>';
@@ -128,35 +130,53 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="cindex.php">
+            <a class="nav-link" href="index.php">
               <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">Timetable</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="html/profile.php">
-              <i class="icon-contract menu-icon"></i>
+              <i class="icon-head menu-icon"></i>
               <span class="menu-title">Profile</span>
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="html/duty.php">
+              <i class="icon-book menu-icon"></i>
+              <span class="menu-title">Duty list</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="html/timetableedit.php">
-              <i class="icon-layout menu-icon"></i>
+              <i class="icon-columns menu-icon"></i>
               <span class="menu-title">Edit TT</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="html/ctt.php">
-              <i class="icon-layout menu-icon"></i>
+              <i class="icon-globe menu-icon"></i>
               <span class="menu-title">Collegue TT</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="status/scover.php">
-              <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Status</span>
+            <a class="nav-link" href="html/TT_change_req.html">
+              <i class="ti-exchange-vertical menu-icon"></i>
+              <span class="menu-title">Change request</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/reqstatus.php">
+              <i class="ti-signal menu-icon"></i>
+              <span class="menu-title">Request Status</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="html/chpass.php">
+              <i class="ti-pencil-alt menu-icon"></i>
+              <span class="menu-title">Change Password</span>
+            </a>
+          </li>          
         </ul>
       </nav>
       <!-- partial -->
@@ -190,7 +210,7 @@
                                     if ($conn->connect_error) {
                                         die("Connection failed: " . $conn->connect_error);
                                     }
-                                    $sql = "SELECT day,p1,p2,p3,p4,p5,p6 FROM $name";
+                                    $sql = "SELECT day,p1,p2,p3,p4,p5,p6 FROM $name order by FIELD(day, 'Monday','Tuesday','Wednesday','Thursday','Friday') ";
                                     $result = $conn->query($sql);
                                     if ($result->num_rows > 0) {
                                     // output data of each row

@@ -34,7 +34,7 @@
   <style>
     .navbar-nav {
         position: relative;
-        width: 140px;
+        width: 38px;
       }
   </style>
 </head>
@@ -55,19 +55,7 @@
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
             </a>
           </li>
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <i class="icon-ellipsis"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-            <a class="dropdown-item" href="../../login/html/cindex.html">
-              <div class="logoutLblPos">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </div>
-              </a>
-            </div>
-          </li>
+          
           <li class="nav-item nav-settings d-none d-lg-flex">
             <a class="nav-link" href="#">
             </a>
@@ -87,21 +75,51 @@
           <li class="nav-item">
             <a class="nav-link" href="../index.php">
               <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">Timetable</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="profile.php">
-              <i class="icon-contract menu-icon"></i>
+              <i class="icon-head menu-icon"></i>
               <span class="menu-title">Profile</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="status/scover.php">
-              <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Status</span>
+            <a class="nav-link" href="duty.php">
+              <i class="icon-book menu-icon"></i>
+              <span class="menu-title">Duty list</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="timetableedit.php">
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">Edit TT</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ctt.php">
+              <i class="icon-globe menu-icon"></i>
+              <span class="menu-title">Collegue TT</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="TT_change_req.html">
+              <i class="ti-exchange-vertical menu-icon"></i>
+              <span class="menu-title">Change request</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="reqstatus.php">
+              <i class="ti-signal menu-icon"></i>
+              <span class="menu-title">Request Status</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="chpass.php">
+              <i class="ti-pencil-alt menu-icon"></i>
+              <span class="menu-title">Change Password</span>
+            </a>
+          </li>          
         </ul>
       </nav>
       <!-- partial -->

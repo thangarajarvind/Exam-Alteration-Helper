@@ -54,7 +54,7 @@
   <style>
     .navbar-nav {
         position: relative;
-        width: 140px;
+        width: 38px;
       }
   </style>
 </head>
@@ -70,29 +70,7 @@
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         </button>
-        <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-            </a>
-          </li>
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <i class="icon-ellipsis"></i>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-            <a class="dropdown-item" href="../../login/html/cindex.html">
-              <div class="logoutLblPos">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </div>
-              </a>
-            </div>
-          </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-            </a>
-          </li>
-        </ul>
+        
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
         </button>
@@ -107,27 +85,51 @@
           <li class="nav-item">
             <a class="nav-link" href="../index.php">
               <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">Timetable</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="profile.php">
-              <i class="icon-contract menu-icon"></i>
+              <i class="icon-head menu-icon"></i>
               <span class="menu-title">Profile</span>
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="duty.php">
+              <i class="icon-book menu-icon"></i>
+              <span class="menu-title">Duty list</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="timetableedit.php">
-              <i class="icon-layout menu-icon"></i>
+              <i class="icon-columns menu-icon"></i>
               <span class="menu-title">Edit TT</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="ctt.php">
-              <i class="icon-layout menu-icon"></i>
+              <i class="icon-globe menu-icon"></i>
               <span class="menu-title">Collegue TT</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="TT_change_req.html">
+              <i class="ti-exchange-vertical menu-icon"></i>
+              <span class="menu-title">Change request</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="reqstatus.php">
+              <i class="ti-signal menu-icon"></i>
+              <span class="menu-title">Request Status</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="chpass.php">
+              <i class="ti-pencil-alt menu-icon"></i>
+              <span class="menu-title">Change Password</span>
+            </a>
+          </li>          
         </ul>
       </nav>
       <!-- partial -->
@@ -172,7 +174,7 @@
                                     if ($conn->connect_error) {
                                         die("Connection failed: " . $conn->connect_error);
                                     }
-                                    $sql1 = "SELECT day,p1,p2,p3,p4,p5,p6 FROM $sname";
+                                    $sql1 = "SELECT day,p1,p2,p3,p4,p5,p6 FROM $sname order by FIELD(day, 'Monday','Tuesday','Wednesday','Thursday','Friday')";
                                     $result1 = $conn->query($sql1);
                                     if ($result1->num_rows > 0) {
                                     // output data of each row

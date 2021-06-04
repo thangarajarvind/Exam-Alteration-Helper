@@ -11,17 +11,8 @@
     $result = mysqli_query($conn,"SELECT * FROM details where id='$id'");
     $row1 = mysqli_fetch_assoc($result);
     $name = $row['name'];
-    $_SESSION['name'] = $name;
+
 ?>
-<script>
-    function printPageArea(areaID){
-      var printContents = document.getElementById(areaID).innerHTML;
-      var originalContents = document.body.innerHTML;
-      document.body.innerHTML = printContents;
-      window.print();
-      document.body.innerHTML = originalContents;
-    }
-  </script>
 <script src="../js/jquery-3.6.0.min.js"></script>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -59,19 +50,7 @@
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         </button>
-        <ul class="navbar-nav navbar-nav-right">
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-            </a>
-          </li>
-          
-          
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-            </a>
-          </li>
-        </ul>
+        
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
         </button>
@@ -136,76 +115,41 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-
-        <div id="printableArea">
-        <div class="col-8">
-        
-                <div class="card">
-                    <div class="table-responsive">
-                    <?php
-                            echo '<table class="table table-hover table-bordered table-striped">
-                                <thead>';
-                                echo '<br>';
-                                echo '<h3 style="text-align:center">Duty details</h3>';
-                                echo '<br>';
-                                    echo '<tr>
-                                        <th scope="col">Duty no</th>
-                                        <th scope="col">Room no</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Day</th>
-                                        <th scope="col">Period</th>
-                                    </tr>
-                                </thead>
-                                <tbody>';
-                                    $conn = mysqli_connect("localhost", "root", "", "se");
-                                    // Check connection
-                                    if ($conn->connect_error) {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    }
-                                    $sql = "SELECT * FROM roomstat WHERE id='$id'";
-                                    $result = $conn->query($sql);
-                                    if ($result->num_rows > 0) {
-                                    // output data of each row
-                                    while($row = $result->fetch_assoc()) {
-                                    $d = $row["dno"];
-                                    $room = $row["room"];
-                                    $date = $row["date"];
-                                    $hour = $row["hour"];
-                                    $timestamp = strtotime($date);
-                                    $day = date('l', $timestamp); 
-                                    echo"<tr>
-                                        <td class='table-warning'>" . $row["dno"] . "</td>
-                                        <td>" . $row["room"] . "</td>
-                                        <td>" . $row["date"] . "</td>
-                                        <td>" . $day . "</td>
-                                        <td>" . $row["hour"] . "</td>
-                                        </tr>";
-                                    }
-                                    echo "</table>";
-                                    } else { 
-                                        $m = "No duty available";
-                                        $l = "../index.php";
-                                        $t = "error";
-                                        pop($l,$m,$t);
-                                     }
-                                    $conn->close();
-
-                                    function pop ($l,$m,$t){
-                                        echo '<script src="../../js/jquery-3.6.0.min.js"></script>';
-                                        echo '<script src="../../js/sweetalert2.all.min.js"></script>';
-                                        echo '<script type="text/javascript">';
-                                        echo "setTimeout(function () { Swal.fire('','$m','$t').then(function (result) {if (result.value) {window.location = '$l';}})";
-                                        echo '},100);</script>';
-                                    }
-                                ?> 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-            
+        <div class="row">
+            <div class="col-md-4 grid-margin">
+                <div class="card">  
+                        <div class="card-body">
+                        <br>
+                        <h3 class="text-primary">Change password</h3>
+                        <br>
+                            <form class="form-horizontal form-material" action="../php/chpass.php" method="POST">
+                                <div class="form-group">
+                                    <label class="col-md-12">Current Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="" name="opass" 
+                                                class="form-control form-control-line" required="">
+                                            </div>
+                                    </div>
+                                        <div class="form-group">
+                                        <label for="example-email" class="col-md-12">New password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="" name="npass"
+                                                class="form-control form-control-line" name="example-email"
+                                                id="example-email" required="">
+                                        </div>
+                                    </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12">Re-enter password</label>
+                                            <div class="col-md-12">
+                                                <input type="password" placeholder="" name="npass1"
+                                                    class="form-control form-control-line" required="">
+                                                </div>
+                                        </div>                                            
+                                            <button class="btn btn-success">Update</button>  
+                                        </form>
+                                    </div>
+                                </div>
             </div>
-          </div>
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
