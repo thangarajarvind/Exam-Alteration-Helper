@@ -1,14 +1,3 @@
-<!--
-=========================================================
-Material Dashboard - v2.1.2
-=========================================================
-
-Product Page: https://www.creative-tim.com/product/material-dashboard
-Copyright 2020 Creative Tim (https://www.creative-tim.com)
-Coded by Creative Tim
-
-=========================================================
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +13,20 @@ The above copyright notice and this permission notice shall be included in all c
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="../../vendors/feather/feather.css">
+  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../path-to/node_modules/mdi/css/materialdesignicons.min.css"/>
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- CSS Files -->
   <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -38,19 +41,19 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-    <div class="logo"><a class="simple-text logo-normal">
-      Admin
-    </a></div>
-        <div class="sidebar-wrapper">
+      <div class="logo"><a class="simple-text logo-normal">
+          Admin
+        </a></div>
+    <div class="sidebar-wrapper">
           <ul class="nav">
-            <li class="nav-item   ">
-              <a class="nav-link" href="./dashboard.html">
+            <li class="nav-item ">
+              <a class="nav-link" href="dashboard.html">
                 <i class="material-icons">dashboard</i>
                 <p>Dashboard</p>
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="./user.html">
+              <a class="nav-link" href="user.html">
                 <i class="material-icons">person</i>
                 <p>User Profile</p>
               </a>
@@ -62,9 +65,15 @@ The above copyright notice and this permission notice shall be included in all c
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="./allocation.php">
-                <i class="material-icons">library_books</i>
-                <p>Duty Allocation</p>
+              <a class="nav-link" href="nduty.html">
+                <i class="bi bi-calendar3-week"></i>
+                <p>Create Duty</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="alloc.php">
+                <i class="bi bi-laptop"></i>
+                <p>Allocate staff</p>
               </a>
             </li>
             <li class="nav-item">
@@ -73,24 +82,25 @@ The above copyright notice and this permission notice shall be included in all c
                 <p>Timetable</p>
               </a>
             </li>
-            <li class="nav-item active ">
+            <li class="nav-item active">
               <a class="nav-link" href="./status.php">
                 <i class="material-icons">done_all</i>
                 <p>Status</p>
               </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="./adduser.html">
-              <i class="material-icons">person_add</i>
-              <p>Add User</p>
-            </a>
-          </li>
-            <li class="nav-item">
+              <a class="nav-link" href="./adduser.html">
+                <i class="material-icons">person_add</i>
+                <p>Add User</p>
+              </a>
+            </li>
+            <li class="nav-item ">
               <a class="nav-link" href="./changepassword.html">
                 <i class="material-icons">vpn_key</i>
                 <p>Change Password</p>
               </a>
             </li>
+            
           </ul>
         </div>
       </div>
@@ -101,72 +111,14 @@ The above copyright notice and this permission notice shall be included in all c
           <div class="navbar-wrapper">
             <a class="navbar-brand">Status</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:;">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">3</span>
-                  <p class="d-lg-none d-md-block">
-                    Some Actions
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your request</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You have 1 unsolved issue</a>
-                  <!--<a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                  -->
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+          
       </nav>
       <!-- End Navbar -->
       <form name="myform" action="../php/status.php" method="GET"></form>
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Status</h4>

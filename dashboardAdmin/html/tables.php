@@ -44,58 +44,65 @@
     <div class="logo"><a class="simple-text logo-normal">
       Admin
     </a></div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="./dashboard.html">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./user.html">
-              <i class="material-icons">person</i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li class="nav-item active ">
-            <a class="nav-link" href="./tables.php">
-              <i class="material-icons">content_paste</i>
-              <p>Activity/Faculty List</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./allocation.php">
-              <i class="material-icons">library_books</i>
-              <p>Duty Allocation</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./searchtimetable.html">
-              <i class="material-icons">calendar_today</i>
-              <p>Timetable</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./status.php">
-              <i class="material-icons">done_all</i>
-              <p>Status</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./adduser.html">
-              <i class="material-icons">person_add</i>
-              <p>Add User</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./changepassword.html">
-              <i class="material-icons">vpn_key</i>
-              <p>Change Password</p>
-            </a>
-          </li>
-        </ul>
-      </div>
+    <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="dashboard.html">
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="user.html">
+                <i class="material-icons">person</i>
+                <p>User Profile</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="./tables.php">
+                <i class="material-icons">content_paste</i>
+                <p>Activity/Faculty List</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="nduty.html">
+                <i class="bi bi-calendar3-week"></i>
+                <p>Create Duty</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="alloc.php">
+                <i class="bi bi-laptop"></i>
+                <p>Allocate staff</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./searchtimetable.html">
+                <i class="material-icons">calendar_today</i>
+                <p>Timetable</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="./status.php">
+                <i class="material-icons">done_all</i>
+                <p>Status</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./adduser.html">
+                <i class="material-icons">person_add</i>
+                <p>Add User</p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="./changepassword.html">
+                <i class="material-icons">vpn_key</i>
+                <p>Change Password</p>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
     </div>
     <div class="main-panel">
       <!-- Navbar -->
@@ -104,65 +111,7 @@
           <div class="navbar-wrapper">
             <a class="navbar-brand" >Table List</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:;">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
-                  <p class="d-lg-none d-md-block">
-                    Some Actions
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your request</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You have 1 unsolved issue</a>
-                  <!--<a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                  -->
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+          
       </nav>
       <!-- End Navbar -->
       <div class="content">
