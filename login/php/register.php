@@ -118,7 +118,7 @@ else{
               $sql = "INSERT INTO $name (day, p1, p2, p3, p4, p5, p6) VALUES ('Friday', 'nan', 'nan', 'nan', 'nan', 'nan', 'nan')";
               mysqli_query($conn, $sql);
               $m = "Account created";
-              $l = "../html/index.html";
+              $l = "../html/index.php";
               $t = "success";
               pop($l,$m,$t);
               
@@ -127,32 +127,32 @@ else{
         }
         else {
           $m = "Password Mismatch";
-          $l = "../html/index.html";
+          $l = "../html/index.php";
           $t = "error";
           pop($l,$m,$t);
         }
       }
       if ($rnum!=0) {
         $m = "Email exists already";
-        $l = "../html/index.html";
+        $l = "../html/index.php";
         $t = "error";
         pop($l,$m,$t);
     }
     if ($rnumm!=0) {
       $m = "Mobile number exists already";
-      $l = "../html/index.html";
+      $l = "../html/index.php";
       $t = "error";
       pop($l,$m,$t);
     }
     if($len!=10){
       $m = "Invalid Mobile number";
-      $l = "../html/index.html";
+      $l = "../html/index.php";
       $t = "error";
       pop($l,$m,$t);
     }
     if($plen<8){
       $m = "Password should be over 8 characters";
-      $l = "../html/index.html";
+      $l = "../html/index.php";
       $t = "error";
       pop($l,$m,$t);
     }

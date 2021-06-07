@@ -1,8 +1,17 @@
 <?php
 session_start();
-
-$user = $_POST['user'];
-$pass  = $_POST['pass'];
+if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];
+    $pass  = $_SESSION['pass'];
+}
+if(isset($_POST['user'])){
+    $user = $_POST['user'];
+    $pass  = $_POST['pass'];
+}
+$rm = 0;
+if(isset($_POST['rm'])){
+    $rm = 1;
+}
 
 $admine = "admin@se";
 $adminm = "0258";
@@ -11,6 +20,26 @@ $rnumm = 0;
 if (empty($user) || empty($pass) )
 {
     die('Username or password missing');
+}
+
+if ($rm == 1){
+    // Username is stored as cookie for 10 years as
+    // 10years * 365days * 24hrs * 60mins * 60secs
+    setcookie("user", $user, time() +
+        (10 * 365 * 24 * 60 * 60),'/');
+
+    // Password is stored as cookie for 10 years as 
+    // 10years * 365days * 24hrs * 60mins * 60secs
+    setcookie("pass", $pass, time() +
+        (10 * 365 * 24 * 60 * 60),'/');
+}
+else{
+    if (isset($_COOKIE["user"])){
+        setcookie("user", "");
+    }
+    if (isset($_COOKIE["pass"])){
+        setcookie("pass", "");
+    }
 }
 
 $host = "localhost";
@@ -53,12 +82,12 @@ else{
             else{
                 $m = "Incorrect Password";
                 $t = "error";
-                $l = "../html/index.html";
+                $l = "../html/index.php";
                 pop($l,$m,$t);
             }
         }
         else{
-            $result = mysqli_query($conn,"SELECT * FROM register where email='" . $_POST['user'] . "'");
+            $result = mysqli_query($conn,"SELECT * FROM register where email='" . $user . "'");
             $row = mysqli_fetch_assoc($result);
             $dbpass = $row['pass1'];
             $pass = md5($pass);
@@ -71,7 +100,7 @@ else{
             }
             else{
                 $m = "Incorrect Password";
-                $l = "../html/index.html";
+                $l = "../html/index.php";
                 $t = "error";
                 pop($l,$m,$t);
             }
@@ -103,7 +132,7 @@ else{
                 }
                 else{
                     $m = "Incorrect Password";
-                    $l = "../html/index.html";
+                    $l = "../html/index.php";
                     $t = "error";
                     pop($l,$m,$t);
                 }
@@ -122,7 +151,7 @@ else{
                 }
                 else{
                     $m = "Incorrect Password";
-                    $l = "../html/index.html";
+                    $l = "../html/index.php";
                     $t = "error";
                     pop($l,$m,$t);
                 }
@@ -132,7 +161,7 @@ else{
     echo '<script>console.log("Outside")</script>';
     if($rnumm!=1 && $rnum!=1){
         echo '<script>console.log("Inside")</script>';
-        $l = "../html/index.html";
+        $l = "../html/index.php";
         $m = "User does not exist";
         $t = "error";
         pop($l,$m,$t);

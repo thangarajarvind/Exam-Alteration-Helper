@@ -33,7 +33,7 @@ if($p1 == $p2){
             $sql = "UPDATE register SET pass1='$p1',pass2='$p1' where email='" . $_SESSION['user'] . "'"; 
             if ($conn->query($sql) === TRUE) {
                 $m = "Record updated successfully";
-                $l = "../html/index.html";
+                $l = "../html/index.php";
                 $t = "error";
                 pop($l,$m,$t);
             } else {
@@ -54,7 +54,7 @@ if($p1 == $p2){
                 $sql = "UPDATE register SET pass1='$p1',pass2='$p1' where mno='" . $_SESSION['user'] . "'"; 
                 if ($conn->query($sql) === TRUE) {
                     $m = "Record updated successfully";
-                    $l = "../html/index.html";
+                    $l = "../html/index.php";
                     $t = "error";
                     pop($l,$m,$t);
                 } else {
@@ -65,7 +65,7 @@ if($p1 == $p2){
     }   
     if($rnumm!=1 && $rnum!=1){
         $m = "User does not exist";
-        $l = "../html/index.html";
+        $l = "../html/index.php";
         $t = "error";
         pop($l,$m,$t);
     }

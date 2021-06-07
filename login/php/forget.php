@@ -62,7 +62,7 @@ else{
     }
     if($rnumm!=1 && $rnum!=1){
         $m = "User does not exist";
-        $l = "../html/index.html";
+        $l = "../html/index.php";
         $t = "error";
         pop($l,$m,$t);
     }

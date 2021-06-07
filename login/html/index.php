@@ -1,9 +1,19 @@
 <html>
+<?php
+    session_start();
+    if(isset($_COOKIE['user'])){
+        $_SESSION['user'] = $_COOKIE['user'];
+        $_SESSION['pass'] = $_COOKIE['pass'];
+        header('Location:../php/login.php');
+    }
+    echo '
     <head>
+    
         <link rel="stylesheet" href="../style.css" />
     </head>
     
     <body>
+        
         <div class="container" id="container">
             <div class="form-container sign-up-container">
                 <form name="myform" action="../php/register.php" method="POST">
@@ -29,7 +39,12 @@
                     <h1>Sign in</h1>
                     <input type="text" name="user" placeholder="Email or Mobile" required="" />
                     <input type="password" name="pass" placeholder="Password" required="" />
+                    
                     <a href="forgetpassword.html">Forgot your password?</a>
+                    <div style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+                        <input type="radio" name="rm" value="Remember Me"/>
+                        <label for="rm">Remember Me</label>
+                    </div>
                     <button>Sign In</button>
                 </form>
             </div>
@@ -50,17 +65,18 @@
         </div>
         
         <script type="text/javascript">
-            const signUpButton = document.getElementById('signUp');
-            const signInButton = document.getElementById('signIn');
-            const container = document.getElementById('container');
+            const signUpButton = document.getElementById("signUp");
+            const signInButton = document.getElementById("signIn");
+            const container = document.getElementById("container");
 
-            signUpButton.addEventListener('click', () => {
+            signUpButton.addEventListener("click", () => {
             container.classList.add("right-panel-active");
             });
 
-            signInButton.addEventListener('click', () => {
+            signInButton.addEventListener("click", () => {
             container.classList.remove("right-panel-active");
             });
         </script>
-    </body>
+    </body>'
+    ?>
 </html>

@@ -104,7 +104,7 @@
                 Duty Monitor
               </div>
               </a>
-              <a class="dropdown-item" href="../../login/html/index.html">
+              <a class="dropdown-item" href="../login/php/logout.php">
               <div class="logoutLblPos">
                 <i class="ti-power-off text-primary"></i>
                 Logout
