@@ -74,15 +74,18 @@
         <a class="navbar-nav" href="cindex.php"><img src="images/logo.png" /></a>
         <a class="navbar-brand brand-logo-mini" href="cindex.php"><img src="images/logo-mini.png" alt="logo"/></a>
       </div>
+      
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
         </button>
+        
         <ul class="navbar-nav navbar-nav-right">
           
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
             </a>
           </li>
+          
           
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
@@ -95,7 +98,13 @@
                 Print TT
               </div>
               </a>
-            <a class="dropdown-item" href="../../login/html/index.html">
+            <a class="dropdown-item" href="html/noti.php">
+              <div class="logoutLblPos">
+                <i class="ti-bell text-primary"></i>
+                Duty Monitor
+              </div>
+              </a>
+              <a class="dropdown-item" href="../../login/html/index.html">
               <div class="logoutLblPos">
                 <i class="ti-power-off text-primary"></i>
                 Logout

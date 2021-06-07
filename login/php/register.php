@@ -87,6 +87,8 @@ else{
               $stmt->bind_param("s", $id);
               $stmt->execute();
               $stmt->close();
+              $sql = "INSERT INTO work (id,name) VALUES ('$id','$name')";
+              mysqli_query($conn, $sql);
               $sql = "CREATE TABLE $name(
                 day VARCHAR(50) PRIMARY KEY,
                 p1 VARCHAR(30),

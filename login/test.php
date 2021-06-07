@@ -15,6 +15,7 @@ $time = (int)$time;
 $valid = 0;
 $hour = '';
 
+
 #Change this to manual access time and day
 #$time = 9;
 #$day = 'Monday';
