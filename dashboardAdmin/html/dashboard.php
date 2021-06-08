@@ -12,8 +12,6 @@
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 
   <link rel="stylesheet" href="../../vendors/feather/feather.css">
@@ -44,184 +42,256 @@
       <div class="logo"><a class="simple-text logo-normal">
           Admin
         </a></div>
-        <div class="sidebar-wrapper">
-          <ul class="nav">
-            <li class="nav-item ">
-              <a class="nav-link" href="dashboard.php">
-                <i class="material-icons">dashboard</i>
-                <p>Dashboard</p>
-              </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="user.html">
-                <i class="material-icons">person</i>
-                <p>User Profile</p>
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="./tables.php">
-                <i class="material-icons">content_paste</i>
-                <p>Activity/Faculty List</p>
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="nduty.html">
-                <i class="bi bi-calendar3-week"></i>
-                <p>Create Duty</p>
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="alloc.php">
-                <i class="bi bi-laptop"></i>
-                <p>Allocate staff</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./searchtimetable.html">
-                <i class="material-icons">calendar_today</i>
-                <p>Timetable</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="req.php">
-                <i class="bi bi-bookmarks"></i>
-                <p>Request Handling</p>
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="./status.php">
-                <i class="material-icons">done_all</i>
-                <p>Status</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./adduser.html">
-                <i class="material-icons">person_add</i>
-                <p>Add User</p>
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="./changepassword.html">
-                <i class="material-icons">vpn_key</i>
-                <p>Change Password</p>
-              </a>
-            </li>
-            
-          </ul>
-        </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="dashboard.php">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./user.html">
+              <i class="material-icons">person</i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./tables.php">
+              <i class="material-icons">content_paste</i>
+              <p>Activity/Faculty List</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="nduty.html">
+              <i class="bi bi-calendar3-week"></i>
+              <p>Create Duty</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="alloc.php">
+              <i class="bi bi-laptop"></i>
+              <p>Allocate staff</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./searchtimetable.html">
+              <i class="material-icons">calendar_today</i>
+              <p>Timetable</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="req.php">
+              <i class="bi bi-bookmarks"></i>
+              <p>Request Handling</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./status.php">
+              <i class="material-icons">done_all</i>
+              <p>Status</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./adduser.html">
+              <i class="material-icons">person_add</i>
+              <p>Add User</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./changepassword.html">
+              <i class="material-icons">vpn_key</i>
+              <p>Change Password</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
     </div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand">User Profile</a>
+            <a class="navbar-brand">Dashboard</a>
           </div>
       </nav>
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-8">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">Edit Profile</h4>
-                  <p class="card-category">Change profile details here</p>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                  <i class="bi bi-people"></i>
+                  </div>
+                  <p class="card-category">Staff Count</p>
+                  <?php
+                    $conn = new mysqli ("localhost", "root", "", "se");
+                    $sql = "SELECT * FROM register";
+                    $result = $conn->query($sql);
+                    $fc = mysqli_num_rows($result);
+                    $fc = $fc-1;
+                   echo '<h3 class="card-title">'.$fc;
+                  ?>
+                    <!-- <small>GB</small> -->
+                  </h3>
                 </div>
-                <div class="card-body">
-                  <form action="../php/useredit.php" method="POST">
-                    <div class="row">
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">ID</label>
-                          <input type="text" class="form-control"  name="id">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Name</label>
-                          <input type="text" class="form-control"  name="name">
-                        </div>
-                      </div>
-                      <div class="col-md-5">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Mobile</label>
-                          <input type="text" class="form-control"  name="mno">
-                        </div>
-                    </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Email address</label>
-                          <input type="email" class="form-control" name="email">
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Designation</label>
-                          <select type="text" id="des" placeholder="" name="des"
-                            class="form-control form-control-line">
-                            <option value="Select">Select</option>
-                            <option value="Professor">Professor</option>
-                            <option value="Asst. Professor">Asst. Professor</option>
-                            <option value="Lecturer">Lecturer</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-8">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Address</label>
-                          <input type="text" class="form-control"  name="addr">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Pin Code</label>
-                          <input type="text" class="form-control"  name="pin">
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
-                    <div class="clearfix"></div>
-                  </form>
+                <div class="card-footer">
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card card-profile">
-                <div class="card-avatar">
-                  <a href="javascript:;">
-                    <img class="img" src="../assets/img/faces/amma.jpg" />
-                  </a>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                  <i class="bi bi-bookmark-check"></i>
+                  </div>
+                  <p class="card-category">Available Staff</p>
+                  <?php
+                    $conn = new mysqli ("localhost", "root", "", "se");
+                    $sql = "SELECT * FROM work WHERE status=0";
+                    $result = $conn->query($sql);
+                    $ac = mysqli_num_rows($result);
+                    echo '<h3 class="card-title">'.$ac.'</h3>';
+                  ?>
                 </div>
-                <div class="card-body">
-                  <h6 class="card-category text-gray">Chairperson</h6>
-                  <h4 class="card-title">Amma</h4>
-                  <p class="card-description">
-                    “In this universe it is Love that binds everything together. Love is the very foundation, beauty and fulfillment of life.”
-                  </p>
-                  
+                <div class="card-footer">
+                  <div class="stats">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                  <i class="bi bi-pencil-square"></i>
+                  </div>
+                  <p class="card-category">On-Duty Staff</p>
+                  <?php
+                    $conn = new mysqli ("localhost", "root", "", "se");
+                    $sql = "SELECT * FROM work WHERE status=1";
+                    $result = $conn->query($sql);
+                    $oc = mysqli_num_rows($result);
+                    echo '<h3 class="card-title">'.$oc.'</h3>';
+                  ?>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                  <i class="bi bi-exclamation-octagon"></i>
+                  </div>
+                  <p class="card-category">Duty yet to Allocate</p>
+                  <?php
+                    $conn = new mysqli ("localhost", "root", "", "se");
+                    $sql = "SELECT * FROM roomstat WHERE id='-'";
+                    $result = $conn->query($sql);
+                    $yet = mysqli_num_rows($result);
+                    echo '<h3 class="card-title">'.$yet.'</h3>';
+                  ?>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title">Duty details</h4>
+                  <p class="card-category">Provided with the staff allocated to the duty</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>DNo</th>
+                      <th>Room</th>
+                      <th>Date</th>
+                      <th>Hour</th>
+                      <th>ID</th>
+                    </thead>
+                    <tbody>
+                      <?php
+                        $conn = new mysqli ("localhost", "root", "", "se");
+                        $sql = "SELECT * FROM roomstat WHERE id!='-'";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                          // output data of each row
+                              while($row = $result->fetch_assoc()) {
+                                echo "<tr><td>  " . $row["dno"]. "</td><td>" . $row["room"] ."</td><td>" . $row["date"] . "</td><td>" . $row["hour"] . "</td><td>" . $row["id"] . "</td></tr>";
+                              }
+                            }
+                            else{
+                              echo "<tr><td>-</td><td>-</td><td>-</td><td>-</td></tr>";
+                            }
+                        ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-10">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title">Duty details</h4>
+                  <p class="card-category">Provided with the staff allocated to the duty</p>
+                </div>
+                <div class="card-body table-responsive">
+                <form name="myform" action="../php/bug.php" method="POST">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th></th>
+                      <th>Bid</th>
+                      <th>ID</th>
+                      <th>Subject</th>
+                    </thead>
+                    <tbody>
+                      <?php
+                        $conn = new mysqli ("localhost", "root", "", "se");
+                        $sql = "SELECT * FROM bug WHERE status=0";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                          // output data of each row
+                              while($row = $result->fetch_assoc()) {
+                                $n = $row['bid'];
+                                echo "<tr><td> <input type='radio' id='$n' name='bid' value='$n'> </td><td>" . $row["bid"]. "</td><td>" . $row["id"] ."</td><td>" . $row["sub"] . "</td></tr>";
+                              }
+                            }
+                            else{
+                              echo "<tr><td> </td><td>-</td><td>-</td><td>-</td></tr>";
+                            }
+                        ?>
+                    </tbody>
+                  </table>
+                  <button type="submit" class="btn btn-danger pull-right">Debugged</button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/jquery.min.js"></script>
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
@@ -230,6 +300,10 @@
   <script src="../../vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
   <script src="../../js/dataTables.select.min.js"></script>
 
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Plugin for the momentJs  -->
   <script src="../assets/js/plugins/moment.min.js"></script>
   <!--  Plugin for Sweet Alert -->
@@ -437,6 +511,13 @@
 
         });
       });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
     });
   </script>
 </body>

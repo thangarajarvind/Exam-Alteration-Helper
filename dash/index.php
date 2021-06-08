@@ -103,6 +103,11 @@
                 <i class="ti-bell text-primary"></i>
                 Duty Monitor
               </div>
+              <a class="dropdown-item" href="html/bug.php">
+              <div class="logoutLblPos">
+                <i class="ti-flag text-primary"></i>
+                Raise Bug
+              </div>
               </a>
               <a class="dropdown-item" href="../login/php/logout.php">
               <div class="logoutLblPos">

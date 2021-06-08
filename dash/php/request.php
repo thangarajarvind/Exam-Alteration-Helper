@@ -79,9 +79,11 @@ if($s == 'On-Duty'){
     mysqli_query($conn, $sql);
 
     $status = 0;
+    echo '1';
 
     $sql = "UPDATE request SET name='$name',day='$day',period='$p',reason='$reason',alternate='$alt',status='$status',dno='$dno' where cid='$nid'";
     if ($conn->query($sql) === TRUE) {
+        echo '1';
         $m = "Request success";
         $l = "../html/TT_change_req.html";
         $t = "success";

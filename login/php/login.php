@@ -77,7 +77,7 @@ else{
                 $row = mysqli_fetch_assoc($result);
                 $id = $row['id'];
                 $_SESSION['id'] = $id;
-                header('Location: ../../dashboardAdmin/html/dashboard.html');
+                header('Location: ../../dashboardAdmin/html/dashboard.php');
             }
             else{
                 $m = "Incorrect Password";
@@ -128,7 +128,7 @@ else{
                     $row = mysqli_fetch_assoc($result);
                     $id = $row['id'];
                     $_SESSION['id'] = $id;
-                    header('Location: ../../dashboardAdmin/html/dashboard.html');
+                    header('Location: ../../dashboardAdmin/html/dashboard.php');
                 }
                 else{
                     $m = "Incorrect Password";
