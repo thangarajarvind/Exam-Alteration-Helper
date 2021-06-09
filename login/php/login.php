@@ -68,7 +68,7 @@ else{
 
     if ($rnum==1) {
         if ($user == $admine || $user == $adminm){
-            $result = mysqli_query($conn,"SELECT * FROM register where email='" . $_POST['user'] . "'");
+            $result = mysqli_query($conn,"SELECT * FROM register where email='" . $user . "'");
             $row = mysqli_fetch_assoc($result);
             $dbpass = $row['pass1'];
             $pass = md5($pass);
@@ -119,7 +119,7 @@ else{
 
         if ($rnumm==1) {
             if ($user == $admine || $user == $adminm){
-                $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $_POST['user'] . "'");
+                $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $user . "'");
                 $row = mysqli_fetch_assoc($result);
                 $dbpass = $row['pass1'];
                 $pass = md5($pass);
@@ -138,7 +138,7 @@ else{
                 }
             }
             else{
-                $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $_POST['user'] . "'");
+                $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $user . "'");
                 $row = mysqli_fetch_assoc($result);
                 $dbpass = $row['pass1'];
                 $pass = md5($pass);
