@@ -115,6 +115,11 @@
           <div class="navbar-wrapper">
             <a class="navbar-brand">Dashboard</a>
           </div>
+          <ul class="navbar-nav">
+            <form action="../../login/php/logout.php">
+                <button type="submit" class="btn btn-white" href="../login/php/logout.php" value="Logout">Logout</button>
+            </form>
+          </ul>
       </nav>
       <!-- End Navbar -->
       <div class="content">
@@ -213,7 +218,7 @@
             <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-header card-header-warning">
-                  <h4 class="card-title">Duty details</h4>
+                  <h4 class="card-title">Duty Details</h4>
                   <p class="card-category">Provided with the staff allocated to the duty</p>
                 </div>
                 <div class="card-body table-responsive">
@@ -249,8 +254,8 @@
             <div class="col-lg-6 col-md-10">
               <div class="card">
                 <div class="card-header card-header-danger">
-                  <h4 class="card-title">Duty details</h4>
-                  <p class="card-category">Provided with the staff allocated to the duty</p>
+                  <h4 class="card-title">Bug Report</h4>
+                  <p class="card-category">Bugs raised by staff</p>
                 </div>
                 <div class="card-body table-responsive">
                 <form name="myform" action="../php/bug.php" method="POST">
