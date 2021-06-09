@@ -294,6 +294,9 @@
                                     if($p == 'Available'){
                                         $c = 'table-success';
                                     }
+                                    if($p == 'nan'){
+                                      $c = 'table-warning';
+                                    }
                                     if($p == 'In-Class'){
                                         $c = 'table-primary';
                                     }
