@@ -1,4 +1,10 @@
 <html>
+    <head>
+        <link rel="icon" type="image/png" href="../favicon.png">
+        <title>
+            Duty Management
+        </title>
+    </head>
 <?php
     session_start();
     if(isset($_COOKIE['user'])){

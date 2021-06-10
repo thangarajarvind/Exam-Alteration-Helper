@@ -2,6 +2,9 @@
 session_start();
 $user = $_SESSION['user'];
 
+$rnum = 0;
+$rnumm = 0;
+
 $p1 = $_POST['p1'];
 $p2 = $_POST['p2'];
 
@@ -34,7 +37,7 @@ if($p1 == $p2){
             if ($conn->query($sql) === TRUE) {
                 $m = "Record updated successfully";
                 $l = "../html/index.php";
-                $t = "error";
+                $t = "success";
                 pop($l,$m,$t);
             } else {
                 echo "Error updating record: " . $conn->error;
@@ -55,7 +58,7 @@ if($p1 == $p2){
                 if ($conn->query($sql) === TRUE) {
                     $m = "Record updated successfully";
                     $l = "../html/index.php";
-                    $t = "error";
+                    $t = "success";
                     pop($l,$m,$t);
                 } else {
                     echo "Error updating record: " . $conn->error;

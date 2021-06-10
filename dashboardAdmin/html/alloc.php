@@ -194,7 +194,7 @@
                             // output data of each row
                                 while($row = $result->fetch_assoc()) {
                                   $n = $row['dno'];
-                                  echo "<td> <input type='radio' id='$n' name='dno' value='$n'> </td><td>" . $row["dno"]. "</td><td>" . $row["room"] . "</td><td>" . $row["date"] . "</td><td>" . $row["hour"] . "</td></tr>";
+                                  echo "<td> <input type='radio' id='$n' name='dno' value='$n' required=''> </td><td>" . $row["dno"]. "</td><td>" . $row["room"] . "</td><td>" . $row["date"] . "</td><td>" . $row["hour"] . "</td></tr>";
                                 }
                             }
                             echo "</table>";

@@ -192,7 +192,7 @@
                                     // output data of each row
                                         while($row = $result->fetch_assoc()) {
                                         $id = $row['id'];
-                                        echo "<td> <input type='radio' id='$id' name='id' value='$id'> </td><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td></tr>";
+                                        echo "<td> <input type='radio' id='$id' name='id' value='$id' required=''> </td><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td></tr>";
                                     }
                                 }
                             }

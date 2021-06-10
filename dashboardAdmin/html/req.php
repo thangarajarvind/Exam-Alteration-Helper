@@ -258,7 +258,7 @@
                             // output data of each row
                                 while($row = $result->fetch_assoc()) {
                                   $n = $row['cid'];
-                                  echo "<td> <input type='radio' id='$n' name='cid' value='$n'> </td><td>" . $row["cid"]. "</td><td>" . $row["name"] . "</td><td>" . $row["day"] . "</td><td>" . $row["period"] . "</td><td>" . $row["reason"] . "</td><td>" . $row["alternate"] . "</td></tr>";
+                                  echo "<td> <input type='radio' id='$n' name='cid' value='$n' required=''> </td><td>" . $row["cid"]. "</td><td>" . $row["name"] . "</td><td>" . $row["day"] . "</td><td>" . $row["period"] . "</td><td>" . $row["reason"] . "</td><td>" . $row["alternate"] . "</td></tr>";
                                 }
                             }
                             else{

@@ -5,7 +5,10 @@ $_SESSION['user'] = $user;
 $code="";
 if (empty($user))
 {
-    die('Email/Mobile is missing');
+    $m = "Enter valid email/mobile";
+    $l = "../html/forgetpassword.html";
+    $t = "error";
+    pop($l,$m,$t);
 }
 
 $host = "localhost";
@@ -30,14 +33,18 @@ else{
     
     if ($rnum==1) {
         $stmt->close();
-        $result = mysqli_query($conn,"SELECT * FROM register where mno='" . $_POST['user'] . "'");
+        $result = mysqli_query($conn,"SELECT * FROM register where email='" . $_POST['user'] . "'");
         $row = mysqli_fetch_assoc($result);
         $code = $row['code'];
         $_SESSION['code'] = $code;
+        $email = $row['email'];
+        $_SESSION['email'] = $email;
+        $name = $row['name'];
+        $_SESSION['name'] = $name;
         $code = rand(10000,99999);
-        $sql = "UPDATE register SET code='$code' where mno='" . $_POST['user'] . "'"; 
+        $sql = "UPDATE register SET code='$code' where email='" . $_POST['user'] . "'"; 
         $conn->query($sql);
-        header('Location: ../html/entercode.html');
+        header('Location: ../../mail.php');
     }
     else{
         $SELECT = "SELECT mno From register Where mno = ?";
@@ -54,10 +61,14 @@ else{
             $row = mysqli_fetch_assoc($result);
             $code = $row['code'];
             $_SESSION['code'] = $code;
+            $email = $row['email'];
+            $_SESSION['email'] = $email;
+            $name = $row['name'];
+            $_SESSION['name'] = $name;
             $code = rand(10000,99999);
             $sql = "UPDATE register SET code='$code' where mno='" . $_POST['user'] . "'"; 
             $conn->query($sql);
-            header('Location: ../html/entercode.html');
+            header('Location: ../../mail.php');
         }
     }
     if($rnumm!=1 && $rnum!=1){
